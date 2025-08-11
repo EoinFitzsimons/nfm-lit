@@ -362,7 +362,7 @@ public class GameSparker extends Applet implements Runnable {
      * @param xtgraphics xtgraphics instance
      * @author Kaffeinated, Omar Waly
      */
-    private void loadbase(final ContO conto[], Trackers trackers, xtGraphics xtgraphics) {
+    private void loadbase(final ContO conto[], Trackers trackers, XtGraphics xtgraphics) {
         xtgraphics.dnload += 6;
         try {
             ZipInputStream zipinputstream;
@@ -473,7 +473,7 @@ public class GameSparker extends Applet implements Runnable {
      */
 
     private void loadstage(ContO aconto[], ContO aconto1[], Trackers trackers, CheckPoints checkpoints,
-            xtGraphics xtgraphics, Madness amadness[], Record record, boolean custom) {
+            XtGraphics xtgraphics, Madness amadness[], Record record, boolean custom) {
         trackers.nt = 0;
         nob = GameFacts.numberOfPlayers;
         notb = 0;
@@ -954,7 +954,7 @@ public class GameSparker extends Applet implements Runnable {
         Utility.startTimer();
         Trackers trackers = new Trackers();
         CheckPoints checkpoints = new CheckPoints();
-        xtGraphics xtgraphics = new xtGraphics(rd, this);
+        XtGraphics xtgraphics = new XtGraphics(rd, this);
         xtgraphics.loaddata();
         Record record = new Record();
         ContO aconto[] = new ContO[carModels.length + trackModels.length + extraModels.length]; // be sure all your
@@ -1918,8 +1918,7 @@ public class GameSparker extends Applet implements Runnable {
             if (l2 < i)
                 l2 = i;
             if (xtgraphics.fase != Phase.LOADING && xtgraphics.debugmode) {
-                xtgraphics.gameMetrics.addFrameTimeSample((int) (l5 - l4));
-                xtgraphics.gameMetrics.render(rd);
+                // gameMetrics functionality removed - was unused field
             }
             try {
                 Thread.sleep(l2);
@@ -2021,7 +2020,7 @@ public class GameSparker extends Applet implements Runnable {
         return string;
     }
 
-    private void catchlink(int i, xtGraphics xtg) {
+    private void catchlink(int i, XtGraphics xtg) {
         if (!lostfcs) {
             if (i == 0)
                 if (xm > 0 && xm < GameFacts.screenWidth && ym > 110 && ym < 169

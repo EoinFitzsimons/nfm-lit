@@ -36,7 +36,7 @@ public class DevTool {
 
     private Map<String, String> commandDescriptions; // for help command
 
-    public DevTool(CheckPoints checkpoints, Madness madness[], ContO conto[], ContO conto1[], xtGraphics xt) {
+    public DevTool(CheckPoints checkpoints, Madness madness[], ContO conto[], ContO conto1[], XtGraphics xt) {
         commandHistory = new ArrayList<>();
         historyIndex = -1;
 
@@ -100,7 +100,7 @@ public class DevTool {
         textArea.append(s + "\n");
     }
 
-    private void executeCommand(String command, CheckPoints checkpoints, Madness madness[], ContO conto[], ContO conto1[], xtGraphics xt) {
+    private void executeCommand(String command, CheckPoints checkpoints, Madness madness[], ContO conto[], ContO conto1[], XtGraphics xt) {
         textArea.append("> " + command + "\n");
 
         String[] parts = command.split(" ");

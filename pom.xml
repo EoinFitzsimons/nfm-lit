@@ -20,40 +20,94 @@
     </properties>
 
     <dependencies>
-        <!-- Local JAR dependencies -->
+        <!-- Local JAR dependencies using system scope -->
         <dependency>
             <groupId>fallk.logmaster</groupId>
             <artifactId>logmaster</artifactId>
             <version>rev5</version>
-            <scope>compile</scope>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/logmaster-rev5.jar</systemPath>
         </dependency>
         
         <dependency>
             <groupId>jouvieje.bass</groupId>
             <artifactId>NativeBass</artifactId>
             <version>1.0</version>
-            <scope>compile</scope>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/NativeBass.jar</systemPath>
         </dependency>
         
         <dependency>
             <groupId>jouvieje.bass</groupId>
             <artifactId>NativeBass-Examples</artifactId>
             <version>1.0</version>
-            <scope>compile</scope>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/NativeBass-Examples.jar</systemPath>
         </dependency>
         
         <dependency>
             <groupId>ds.nfm</groupId>
             <artifactId>dragshotMod</artifactId>
             <version>1.0</version>
-            <scope>compile</scope>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/dragshotMod.jar</systemPath>
         </dependency>
         
         <dependency>
             <groupId>ds.nfm</groupId>
             <artifactId>javamod</artifactId>
             <version>1.0</version>
-            <scope>compile</scope>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/javamod.jar</systemPath>
+        </dependency>
+        
+        <!-- Additional JARs that might be needed -->
+        <dependency>
+            <groupId>easyogg</groupId>
+            <artifactId>easyogg</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/easyogg.jar</systemPath>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.jasypt</groupId>
+            <artifactId>jasypt</artifactId>
+            <version>1.9.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/jasypt-1.9.2.jar</systemPath>
+        </dependency>
+        
+        <dependency>
+            <groupId>javazoom</groupId>
+            <artifactId>jl</artifactId>
+            <version>1.0.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/jl1.0.1.jar</systemPath>
+        </dependency>
+        
+        <dependency>
+            <groupId>jogg</groupId>
+            <artifactId>jogg</artifactId>
+            <version>0.0.7</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/jogg-0.0.7.jar</systemPath>
+        </dependency>
+        
+        <dependency>
+            <groupId>jorbis</groupId>
+            <artifactId>jorbis</artifactId>
+            <version>0.0.15</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/jorbis-0.0.15.jar</systemPath>
+        </dependency>
+        
+        <dependency>
+            <groupId>startup2</groupId>
+            <artifactId>startup2</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/startup2.jar</systemPath>
         </dependency>
     </dependencies>
 

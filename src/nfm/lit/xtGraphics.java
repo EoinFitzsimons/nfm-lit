@@ -31,15 +31,13 @@ import java.util.zip.ZipInputStream;
  * @author Omar Waly
  * @author Jacherr
  */
-public class xtGraphics extends Panel implements Runnable {
-    public Metrics gameMetrics = new Metrics();
-
+public class XtGraphics extends Panel implements Runnable {
     /**
      *
      */
     private static final long serialVersionUID = -6463312620664057856L;
 
-    SoundManager sm = new SoundManager();
+    public final transient SoundManager sm = new SoundManager();
     /**
      * starting colors for the special screen in the credits
      */
@@ -47,10 +45,9 @@ public class xtGraphics extends Panel implements Runnable {
     /**
      * test image for the network load feature
      */
-    private Image aimLogo;
 
     private final Graphics2D rd;
-    private ImageObserver ob;
+    private transient ImageObserver ob;
     private final Applet app;
     public Phase fase;
     private Phase oldfase;
@@ -61,7 +58,6 @@ public class xtGraphics extends Panel implements Runnable {
     private boolean shaded;
     public int flipo;
     private boolean nextc;
-    private int gatey;
     public int looped;
     public final int[] sc;
     public boolean setnumber;
@@ -125,10 +121,8 @@ public class xtGraphics extends Panel implements Runnable {
     private Image stunts;
     private Image racing;
     private Image wasting;
-    private Image plus;
     private Image space;
     private Image arrows;
-    private Image chil;
     private Image ory;
     private Image kz;
     private Image kx;
@@ -137,7 +131,6 @@ public class xtGraphics extends Panel implements Runnable {
     private Image km;
     private Image kn;
     private Image kenter;
-    private Image nfm;
     private final Image[][] trackbg;
     public final Image[] dude;
     private final Image[] dudeb;
@@ -162,17 +155,10 @@ public class xtGraphics extends Panel implements Runnable {
     private boolean pwastd;
     public boolean mutes;
 
-    // private RadicalMusic stages;
-    // private RadicalMusic cars;
-    // RadicalMusic tracks[];
-
-    // public final RadicalMod[] stracks;
     public static RadicalMusic strack;
     public static RadicalMusic intertrack = new RadicalMod();
-    //public static RadicalMusic intercar = new RadicalMod();
     public static boolean loadedt = false;
 
-    private int lastload;
     private boolean mutem;
     private boolean macn;
     private boolean arrace;
@@ -185,9 +171,6 @@ public class xtGraphics extends Panel implements Runnable {
     private String say;
     private boolean wasay;
     private int clear;
-    private int posit;
-    private int wasted;
-    private int laps;
     private final int[] dested;
     public final String[] names = {
             "Tornado Shark", "Formula 7", "Wow Caninaro", "La Vite Crab", "Nimi", "MAX Revenge", "Lead Oxide",
@@ -275,7 +258,7 @@ public class xtGraphics extends Panel implements Runnable {
     private int car_select_continue_button_y = GameFacts.screenHeight - 120;
 
     /* stage select */
-    private int stage_select_next_back_button_y = (int) (GameFacts.screenHeight * 0.5);;
+    private int stage_select_next_back_button_y = (int) (GameFacts.screenHeight * 0.5);
     private int stage_select_back_button_x = car_select_back_button_x;
     private int stage_select_next_button_x = car_select_next_button_x;
     private int stage_select_continue_button_y = GameFacts.screenHeight - 80;
@@ -306,14 +289,6 @@ public class xtGraphics extends Panel implements Runnable {
     private int instructions_back_button_x = stage_select_back_button_x;
     private int instructions_continue_button_x = instructions_next_button_x - 5;
 
-    private final int[] pgatx = {
-            146, 175, 215, 267, 334, 401, 452, 493, 521
-    };
-    private final int[] pgaty = {
-            168, 188, 201, 212, 219, 214, 203, 189, 171
-    };
-    private final int[] pgady;
-    private final boolean[] pgas;
     private int lxm;
     private int lym;
     private int pwait;
@@ -337,10 +312,6 @@ public class xtGraphics extends Panel implements Runnable {
 
     static int practicemode = 0;
 
-    private int dev_up = 0;
-    private int dev_down = 0;
-    private int dev_left = 0;
-    private int dev_right = 0;
     public boolean devtriggered = false;
 
     public boolean fixedsort = false;
@@ -565,9 +536,9 @@ public class xtGraphics extends Panel implements Runnable {
      * @author Kaffeinated
      */
     public Image credsnap(Image image) {
-        int i = GameFacts.screenHeight; // image.getHeight(ob);
+        int i = GameFacts.screenHeight;
         int j = image.getWidth(ob);
-        int ai[] = new int[j * i];
+        int[] ai = new int[j * i];
 
         if (credColors[0] < 200) {
             credColors[0] += 5;
@@ -672,12 +643,6 @@ public class xtGraphics extends Panel implements Runnable {
 
             if (!nplayers_debug) {
                 switch (checkpoints.stage) {
-                    // case 2:
-                    // GameFacts.numberOfPlayers = 10;
-                    // break;
-                    // case 5:
-                    // GameFacts.numberOfPlayers = 13;
-                    // break;
                     default:
                         GameFacts.numberOfPlayers = 7;
                         break;
@@ -2025,7 +1990,7 @@ public class xtGraphics extends Panel implements Runnable {
         int howManyImages = 0;
 
         try {
-            URL url = new URL(app.getCodeBase(), "data/images.radq");
+            URL url = URI.create(app.getCodeBase() + "data/images.radq").toURL();
             ZipInputStream zipinputstream = new ZipInputStream(url.openStream());
             for (ZipEntry zipentry = zipinputstream.getNextEntry(); zipentry != null; zipentry = zipinputstream
                     .getNextEntry()) {
@@ -2185,17 +2150,11 @@ public class xtGraphics extends Panel implements Runnable {
                 if ("wasting.gif".equals(s)) {
                     wasting = loadimage(abyte0, mediatracker, toolkit);
                 }
-                if ("plus.gif".equals(s)) {
-                    plus = loadimage(abyte0, mediatracker, toolkit);
-                }
                 if ("space.gif".equals(s)) {
                     space = loadimage(abyte0, mediatracker, toolkit);
                 }
                 if ("arrows.gif".equals(s)) {
                     arrows = loadimage(abyte0, mediatracker, toolkit);
-                }
-                if ("chil.gif".equals(s)) {
-                    chil = loadimage(abyte0, mediatracker, toolkit);
                 }
                 if ("ory.gif".equals(s)) {
                     ory = loadimage(abyte0, mediatracker, toolkit);
@@ -2220,9 +2179,6 @@ public class xtGraphics extends Panel implements Runnable {
                 }
                 if ("kenter.gif".equals(s)) {
                     kenter = loadimage(abyte0, mediatracker, toolkit);
-                }
-                if ("nfm.gif".equals(s)) {
-                    nfm = loadimage(abyte0, mediatracker, toolkit);
                 }
                 if ("options.gif".equals(s)) {
                     opti = loadimage(abyte0, mediatracker, toolkit);
@@ -2269,7 +2225,8 @@ public class xtGraphics extends Panel implements Runnable {
         Utility.startTimer();
         dnload += 12;
         try {
-            aimLogo = Utility.webGet("http://i59.servimg.com/u/f59/14/03/33/42/logo10.png"); /// aim games logo
+            // Note: aimLogo removed as it was unused
+            // aimLogo = Utility.webGet("http://i59.servimg.com/u/f59/14/03/33/42/logo10.png"); /// aim games logo
 
             /// URL goes here
             //
@@ -3715,7 +3672,6 @@ public class xtGraphics extends Panel implements Runnable {
         holdit = false;
         winner = false;
         setnumber = false;
-        wasted = 0;
         int j = 0;
         do {
             dested[j] = 0;
@@ -3902,7 +3858,7 @@ public class xtGraphics extends Panel implements Runnable {
         rd.fillRect(Utility.centeredImageX(loadbar) + 5, 346, 26 + (int) ((shload / kbload) * 200F), 10);
     }
 
-    public xtGraphics(Graphics2D graphics2d, Applet applet) {
+    public XtGraphics(Graphics2D graphics2d, Applet applet) {
         fase = Phase.LOADING;
         oldfase = Phase.INGAME;
         starcnt = 0;
@@ -3912,7 +3868,6 @@ public class xtGraphics extends Panel implements Runnable {
         shaded = false;
         flipo = 0;
         nextc = false;
-        gatey = 0;
         looped = 1;
         sc = new int[51];
         holdit = false;
@@ -3947,7 +3902,6 @@ public class xtGraphics extends Panel implements Runnable {
         mutes = false;
         // tracks = new RadicalMusic[GameFacts.numberOfStages];
         // loadedt = new boolean[GameFacts.numberOfStages];
-        lastload = -1;
         mutem = false;
         macn = false;
         arrace = false;
@@ -3960,9 +3914,6 @@ public class xtGraphics extends Panel implements Runnable {
         say = "";
         wasay = false;
         clear = 0;
-        posit = 0;
-        wasted = 0;
-        laps = 0;
         dested = new int[51];
         dmcnt = 0;
         dmflk = false;
@@ -3987,8 +3938,6 @@ public class xtGraphics extends Panel implements Runnable {
         insano_mainmenu_y = 2 + main_menu_height_origin;
         insano_mainmenu_target_x = 0;
         insano_mainmenu_target_y = 0;
-        pgady = new int[9];
-        pgas = new boolean[9];
         lxm = -10;
         lym = -10;
         pwait = 7;
@@ -4011,19 +3960,19 @@ public class xtGraphics extends Panel implements Runnable {
         app = applet;
         rd = graphics2d;
         MediaTracker mediatracker = new MediaTracker(app);
-        hello = Toolkit.getDefaultToolkit().getImage(xtGraphics.class.getResource("aimg/hello.gif"));
+        hello = Toolkit.getDefaultToolkit().getImage(XtGraphics.class.getResource("aimg/hello.gif"));
         mediatracker.addImage(hello, 0);
         try {
             mediatracker.waitForID(0);
         } catch (Exception _ex) {
         }
-        sign = Toolkit.getDefaultToolkit().getImage(xtGraphics.class.getResource("aimg/sign.gif"));
+        sign = Toolkit.getDefaultToolkit().getImage(XtGraphics.class.getResource("aimg/sign.gif"));
         mediatracker.addImage(sign, 0);
         try {
             mediatracker.waitForID(0);
         } catch (Exception _ex) {
         }
-        loadbar = Toolkit.getDefaultToolkit().getImage(xtGraphics.class.getResource("aimg/loadbar.gif"));
+        loadbar = Toolkit.getDefaultToolkit().getImage(XtGraphics.class.getResource("aimg/loadbar.gif"));
         mediatracker.addImage(loadbar, 0);
         try {
             mediatracker.waitForID(0);
@@ -5044,7 +4993,7 @@ public class xtGraphics extends Panel implements Runnable {
         } else {
             pback = 0;
             pnext = 0;
-            gatey = 300;
+            // gatey removed as unused
             car_select_delay--;
             if (flipo > 10) {
                 aconto[sc[0]].y -= 100;
@@ -5102,7 +5051,6 @@ public class xtGraphics extends Panel implements Runnable {
         if (control.handb || control.enter) {
             sm.play("tick");
             if (flipo == 0 && (sc[0] - 7) * 2 < unlocked) {
-                lastload = -11;
                 intertrack.setPaused(true);
                 intertrack.unload();
                 loadIntertrack("red_dream_nfmmix");

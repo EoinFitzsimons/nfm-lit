@@ -1,3 +1,4 @@
+nfm\lit\XtGraphics.class
 nfm\lit\RunApp$1.class
 nfm\lit\Stat.class
 nfm\lit\Phase.class
@@ -15,11 +16,11 @@ nfm\lit\StatList.class
 nfm\lit\Madness.class
 nfm\lit\audio\RadicalMidi.class
 nfm\lit\DevTool.class
-nfm\lit\xtGraphics$1.class
 nfm\lit\audio\RadicalMusic$Type.class
 nfm\lit\RenderConfig.class
 nfm\lit\Record.class
 nfm\lit\audio\SoundManager.class
+nfm\lit\XtGraphics$1.class
 nfm\lit\AIConfig.class
 nfm\lit\CheckPoints.class
 nfm\lit\Medium.class
@@ -45,7 +46,6 @@ nfm\lit\GameFacts.class
 nfm\lit\RunApp.class
 nfm\lit\audio\SoundClip.class
 nfm\lit\audio\SoundClipUnthreaded.class
-nfm\lit\xtGraphics.class
 nfm\lit\GameSparker.class
 nfm\lit\audio\RadicalBASS.class
 nfm\lit\audio\RadicalBASS$1.class

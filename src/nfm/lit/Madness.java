@@ -14,7 +14,7 @@ class Madness {
     // Core components
     public Stat stat;
     private final Record rpd;
-    private final xtGraphics xt;
+    private final XtGraphics xt;
     private final boolean[] dominate;
     private final boolean[] caught;
     
@@ -346,7 +346,7 @@ class Madness {
         }
     }
 
-    public Madness(Record record, xtGraphics xtgraphics, int i) {
+    public Madness(Record record, XtGraphics xtgraphics, int i) {
         cn = 0;
         im = 0;
         mxz = 0;
