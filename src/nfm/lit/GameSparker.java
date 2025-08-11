@@ -669,13 +669,10 @@ public class GameSparker extends JPanel implements IGameEngine, Runnable, KeyLis
                 if (line.startsWith("set")) {
                     int k1 = Utility.getint("set", line, 0);
                     k1 += nobfix;
-                
                     // compute default Y (ground-height)
-                    int yVal = Medium.ground - aconto1[k1].grat;
+                    int yVal = Medium.ground - aconto[k1].grat;
                     int rot = Utility.getint("set", line, 3);
-                
                     // if there *is* a 5th comma-separated value, use that instead
-                    // (splitting only the part inside the parentheses)
                     String inside = line.substring(line.indexOf('(') + 1, line.lastIndexOf(')'));
                     String[] parts = inside.split("\\s*,\\s*");
                     if (parts.length > 4) {
@@ -685,10 +682,9 @@ public class GameSparker extends JPanel implements IGameEngine, Runnable, KeyLis
                             rot = Utility.getint("set", line, 4);
                         }
                     }
-                
                     // now create the object, exactly as before but with our yVal
                     aconto[nob] = new ContO(
-                        aconto1[k1],
+                        aconto[k1],
                         Utility.getint("set", line, 1),
                         yVal,
                         Utility.getint("set", line, 2),
@@ -993,19 +989,27 @@ public class GameSparker extends JPanel implements IGameEngine, Runnable, KeyLis
         xtgraphics.resetstat(checkpoints.stage);
         j1 = 0;
         do {
-            if (j1 % 3 == 0) {
-                aconto[j1] = new ContO(aconto1[xtgraphics.sc[j1]], 0, 250 - aconto1[xtgraphics.sc[j1]].grat,
-                        -760 + ((j1 / 3) * 760), 0);
+            // Only allow car model indices (0..CAR_MODELS.length-1) for player and AI
+            int carModelIdx = xtgraphics.sc[j1];
+            if (carModelIdx >= 0 && carModelIdx < nfm.lit.CarConfig.CAR_MODELS.length) {
+                if (j1 % 3 == 0) {
+                    aconto[j1] = new ContO(aconto1[carModelIdx], 0, 250 - aconto1[carModelIdx].grat,
+                            -760 + ((j1 / 3) * 760), 0);
+                }
+                if (j1 % 3 == 1) {
+                    aconto[j1] = new ContO(aconto1[carModelIdx], -350, 250 - aconto1[carModelIdx].grat,
+                            -380 + ((int) (j1 / 3) * 760), 0);
+                }
+                if (j1 % 3 == 2) {
+                    aconto[j1] = new ContO(aconto1[carModelIdx], 350, 250 - aconto1[carModelIdx].grat,
+                            -380 + ((int) (j1 / 3) * 760), 0);
+                }
+                amadness[j1].reseto(carModelIdx, aconto[j1], checkpoints);
+            } else {
+                // fallback: use first car model if index is out of range
+                aconto[j1] = new ContO(aconto1[0], 0, 250 - aconto1[0].grat, -760 + ((j1 / 3) * 760), 0);
+                amadness[j1].reseto(0, aconto[j1], checkpoints);
             }
-            if (j1 % 3 == 1) {
-                aconto[j1] = new ContO(aconto1[xtgraphics.sc[j1]], -350, 250 - aconto1[xtgraphics.sc[j1]].grat,
-                        -380 + ((int) (j1 / 3) * 760), 0);
-            }
-            if (j1 % 3 == 2) {
-                aconto[j1] = new ContO(aconto1[xtgraphics.sc[j1]], 350, 250 - aconto1[xtgraphics.sc[j1]].grat,
-                        -380 + ((int) (j1 / 3) * 760), 0);
-            }
-            amadness[j1].reseto(xtgraphics.sc[j1], aconto[j1], checkpoints);
         } while (++j1 < GameFacts.numberOfPlayers);
         record.reset(aconto);
         System.gc();
@@ -1045,10 +1049,13 @@ public class GameSparker extends JPanel implements IGameEngine, Runnable, KeyLis
         XtGraphics xtgraphics = new XtGraphics(rd, this);
         xtgraphics.loaddata();
         Record record = new Record();
-        ContO aconto[] = new ContO[carModels.length + trackModels.length + extraModels.length]; // be sure all your
-                                                                                                // arrays get in here
+        ContO aconto[] = new ContO[carModels.length + trackModels.length + extraModels.length]; // all models
         loadbase(aconto, trackers, xtgraphics);
-        ContO aconto1[] = new ContO[5000];
+        // Fill aconto1[] with only car models, at the same indices as carModels
+        ContO aconto1[] = new ContO[carModels.length];
+        for (int i = 0; i < carModels.length; i++) {
+            aconto1[i] = aconto[i];
+        }
         Madness amadness[] = new Madness[51];
         int l = 0;
         do {
@@ -1098,6 +1105,32 @@ public class GameSparker extends JPanel implements IGameEngine, Runnable, KeyLis
         int k1 = 0;
         int i2 = 0;
         int j2 = 0;
+        // --- Begin Patch: Fix AI car assignment to use only real car models ---
+        // Assign car models to all racers: player and AI
+        // Player's car is already set in xtgraphics.sc[0]
+        java.util.List<Integer> availableCarIndices = new java.util.ArrayList<>();
+        for (int idx = 0; idx < nfm.lit.CarConfig.CAR_MODELS.length; idx++) {
+            if (idx != xtgraphics.sc[0]) {
+                availableCarIndices.add(idx);
+            }
+        }
+        java.util.Collections.shuffle(availableCarIndices);
+        for (int ai = 1; ai < GameFacts.numberOfPlayers; ai++) {
+            int carIdx;
+            if (ai - 1 < availableCarIndices.size()) {
+                carIdx = availableCarIndices.get(ai - 1);
+            } else {
+                carIdx = availableCarIndices.get((ai - 1) % availableCarIndices.size());
+            }
+            // Only allow car model indices 0..numCarModels-1
+            if (carIdx < 0 || carIdx >= nfm.lit.CarConfig.CAR_MODELS.length) carIdx = 0;
+            xtgraphics.sc[ai] = carIdx;
+        }
+        // If numberOfPlayers > numCarModels+1, fill remaining with random car models (never track pieces)
+        for (int fillIdx = GameFacts.numberOfPlayers; fillIdx < xtgraphics.sc.length; fillIdx++) {
+            xtgraphics.sc[fillIdx] = 0;
+        }
+        // --- End Patch ---
         int k2 = 0;
         boolean flag2 = false;
         exwist = false;
