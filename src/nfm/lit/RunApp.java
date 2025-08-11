@@ -51,9 +51,11 @@ class RunApp extends Panel {
         frame.setIgnoreRepaint(true);
         frame.setIconImages(getIcons());
 
+        // Create game engine - could use factory for better decoupling:
+        // IGameEngine engine = GameEngineFactory.createGameEngine();
+        // applet = (GameSparker) engine; // Cast needed for JPanel operations
         applet = new GameSparker();
 
-        applet.setStub(new DesktopStub());
         frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent windowevent) {

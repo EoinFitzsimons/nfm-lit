@@ -10,8 +10,6 @@ import nfm.lit.audio.TrackZipLoader;
 
 import java.io.*;
 import java.net.*;
-import java.applet.Applet;
-import java.applet.AudioClip;
 import java.awt.*;
 import java.awt.color.ColorSpace;
 import java.awt.image.*;
@@ -48,7 +46,7 @@ public class XtGraphics extends Panel implements Runnable {
 
     private final Graphics2D rd;
     private transient ImageObserver ob;
-    private final Applet app;
+    private final Component app;
     public Phase fase;
     private Phase oldfase;
     public int starcnt;
@@ -1990,8 +1988,9 @@ public class XtGraphics extends Panel implements Runnable {
         int howManyImages = 0;
 
         try {
-            URL url = URI.create(app.getCodeBase() + "data/images.radq").toURL();
-            ZipInputStream zipinputstream = new ZipInputStream(url.openStream());
+            // Use file-based approach for standalone application
+            File dataFile = new File("data/images.radq");
+            ZipInputStream zipinputstream = new ZipInputStream(new FileInputStream(dataFile));
             for (ZipEntry zipentry = zipinputstream.getNextEntry(); zipentry != null; zipentry = zipinputstream
                     .getNextEntry()) {
                 int i = (int) zipentry.getSize();
@@ -3858,7 +3857,7 @@ public class XtGraphics extends Panel implements Runnable {
         rd.fillRect(Utility.centeredImageX(loadbar) + 5, 346, 26 + (int) ((shload / kbload) * 200F), 10);
     }
 
-    public XtGraphics(Graphics2D graphics2d, Applet applet) {
+    public XtGraphics(Graphics2D graphics2d, Component component) {
         fase = Phase.LOADING;
         oldfase = Phase.INGAME;
         starcnt = 0;
@@ -3957,7 +3956,7 @@ public class XtGraphics extends Panel implements Runnable {
         flangados = 0;
         blackn = 0.0F;
         blacknados = 0.0F;
-        app = applet;
+        app = component;
         rd = graphics2d;
         MediaTracker mediatracker = new MediaTracker(app);
         hello = Toolkit.getDefaultToolkit().getImage(XtGraphics.class.getResource("aimg/hello.gif"));
@@ -5598,16 +5597,6 @@ public class XtGraphics extends Panel implements Runnable {
         }
 
         return createImage(new MemoryImageSource(l, k, ai, 0, l));
-    }
-
-    /**
-     * returns an audioclip
-     *
-     * @param s name of clip
-     * @return the new audio clip
-     */
-    private AudioClip getSound(String s) {
-        return Applet.newAudioClip(getClass().getResource(s));
     }
 
     private void carsbginflex() {

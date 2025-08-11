@@ -2,8 +2,9 @@ package nfm.lit;
 import fallk.logmaster.HLogger;
 import nfm.lit.audio.BASSLoader;
 
-import java.applet.Applet;
+import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 import java.awt.geom.Rectangle2D;
 import java.io.*;
 import java.net.Socket;
@@ -21,12 +22,12 @@ import java.util.zip.ZipOutputStream;
 /**
  * Refactored: Extracted config values to StageConfig, SoundConfig, CarConfig, improved field visibility,
  * added getters/setters, added comments for clarity.
- * TODO: Implement IGameEngine interface for further decoupling.
+ * Implements IGameEngine interface for better decoupling and architecture.
  * GameSparker brings everything together.
  *
  * @author Kaffeinated, Omar Waly
  */
-public class GameSparker extends Applet implements Runnable {
+public class GameSparker extends JPanel implements IGameEngine, Runnable, KeyListener, MouseListener, MouseMotionListener, FocusListener {
     
     private static final long serialVersionUID = -34048182014310663L;
 
@@ -52,6 +53,7 @@ public class GameSparker extends Applet implements Runnable {
 
     // Stage management
     private int stageID = 1;
+    private int currentStageID = 1; // Track current stage for IGameEngine interface
     public static String stageSubDir = "nfm2/";
     public static String stageName = "";
     private String loadStage = stageDir + stageSubDir + stageID + ".txt";
@@ -92,44 +94,200 @@ public class GameSparker extends Applet implements Runnable {
     public boolean reverseYRot = false;
 
     /**
-     * <a href=
-     * "http://www.expandinghead.net/keycode.html">http://www.expandinghead.net/keycode.html</a>
+     * Constructor for JPanel-based GameSparker
      */
+    public GameSparker() {
+        super();
+        // Enable focus and add listeners
+        setFocusable(true);
+        addKeyListener(this);
+        addMouseListener(this);
+        addMouseMotionListener(this);
+        addFocusListener(this);
+        
+        // INFO
+        System.out.println(IS_64_BIT + "BIT " + OPERATING_SYSTEM.toUpperCase());
+
+        // DS-patch: Dynamic libs path - BEGIN
+        String dllPath = "lib/dlls/";
+        if (IS_MAC) {
+            dllPath += "mac";
+        } else {
+            dllPath += (IS_WINDOWS ? "win" : "linux") + IS_64_BIT;
+        }
+        System.setProperty("org.lwjgl.librarypath", dllPath);
+        // DS-patch - END
+
+        BASSLoader.initializeBASS();
+
+        u = new Control[51];
+        mouses = 0;
+        xm = 0;
+        ym = 0;
+        lostfcs = false;
+        exwist = true;
+        nob = 0;
+        notb = 0;
+        view = 0;
+    }
+
+    // ========== Modern Event Listener Methods ==========
+    
     @Override
-    public boolean keyDown(Event event, int i) {
+    public void keyPressed(KeyEvent e) {
         if (!exwist) {
-            if (i == 1004)
+            int keyCode = e.getKeyCode();
+            // Map modern KeyEvent codes to old behavior
+            if (keyCode == KeyEvent.VK_UP)
                 u[0].up = true;
-            if (i == 1005)
+            if (keyCode == KeyEvent.VK_DOWN)
                 u[0].down = true;
-            if (i == 1007)
+            if (keyCode == KeyEvent.VK_RIGHT)
                 u[0].right = true;
-            if (i == 1006)
+            if (keyCode == KeyEvent.VK_LEFT)
                 u[0].left = true;
-            if (i == 32)
+            if (keyCode == KeyEvent.VK_SPACE)
                 u[0].handb = true;
-            if (i == 120 || i == 88)
+            if (keyCode == KeyEvent.VK_X)
                 u[0].lookback = -1;
-            if (i == 122 || i == 90)
+            if (keyCode == KeyEvent.VK_Z)
                 u[0].lookback = 1;
-            if (i == 10 || i == 80 || i == 112 || i == 27)
+            if (keyCode == KeyEvent.VK_ENTER || keyCode == KeyEvent.VK_P || keyCode == KeyEvent.VK_ESCAPE)
                 u[0].enter = true;
-            if (i == 77 || i == 109)
+            if (keyCode == KeyEvent.VK_M)
                 u[0].mutem = !u[0].mutem;
-            if (i == 78 || i == 110)
+            if (keyCode == KeyEvent.VK_N)
                 u[0].mutes = !u[0].mutes;
-            if (i == 97 || i == 65)
+            if (keyCode == KeyEvent.VK_A)
                 u[0].arrace = !u[0].arrace;
-            if (i == 118 || i == 86) {
+            if (keyCode == KeyEvent.VK_V) {
                 view++;
                 if (view == 3)
                     view = 0;
             }
         }
-        return false;
     }
 
     @Override
+    public void keyReleased(KeyEvent e) {
+        if (!exwist) {
+            int keyCode = e.getKeyCode();
+            if (keyCode == KeyEvent.VK_UP)
+                u[0].up = false;
+            if (keyCode == KeyEvent.VK_DOWN)
+                u[0].down = false;
+            if (keyCode == KeyEvent.VK_RIGHT)
+                u[0].right = false;
+            if (keyCode == KeyEvent.VK_LEFT)
+                u[0].left = false;
+            if (keyCode == KeyEvent.VK_SPACE)
+                u[0].handb = false;
+            if (keyCode == KeyEvent.VK_X || keyCode == KeyEvent.VK_Z)
+                u[0].lookback = 0;
+        }
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+        // Not used in this application
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        if (!exwist && mouses == 0) {
+            xm = e.getX();
+            ym = e.getY();
+            mouses = 1;
+        }
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+        // Not used in this application
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        // Not used in this application  
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        // Not used in this application
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+        // Not used in this application
+    }
+
+    @Override
+    public void mouseMoved(MouseEvent e) {
+        if (!exwist && !lostfcs) {
+            xm = e.getX();
+            ym = e.getY();
+        }
+    }
+
+    @Override
+    public void mouseDragged(MouseEvent e) {
+        if (!exwist && !lostfcs) {
+            xm = e.getX();
+            ym = e.getY();
+        }
+    }
+
+    @Override
+    public void focusGained(FocusEvent e) {
+        if (!exwist && lostfcs)
+            lostfcs = false;
+    }
+
+    @Override
+    public void focusLost(FocusEvent e) {
+        if (!exwist && !lostfcs) {
+            lostfcs = true;
+            mouses = 0;
+            u[0].falseo();
+            setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        }
+    }
+
+    // ========== Applet Lifecycle Methods (now JPanel equivalents) ==========
+    
+    /**
+     * Initialize the component - replaces Applet.init()
+     */
+    public void init() {
+        /*
+         * load some fonts
+         */
+        new FontHandler();
+
+        offImage = createImage(GameFacts.screenWidth, GameFacts.screenHeight);
+        if (offImage != null) {
+            sg = offImage.getGraphics();
+            rd = ((Graphics2D) sg);
+            rd.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+            rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+            rd.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
+            rd.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+        }
+    }
+
+    /**
+     * Start the component - replaces Applet.start()  
+     */
+    public void start() {
+        if (gamer == null)
+            gamer = new Thread(this);
+        if (gamer.getState() == Thread.State.NEW)
+            gamer.start();
+    }
+
+    /**
+     * Stop the component - replaces Applet.stop()
+     */
     public void stop() {
         if (exwist && gamer != null) {
             System.gc();
@@ -145,22 +303,20 @@ public class GameSparker extends Applet implements Runnable {
         exwist = true;
     }
 
-    @Override
-    public boolean lostFocus(Event event, Object obj) {
-        if (!exwist && !lostfcs) {
-            lostfcs = true;
-            mouses = 0;
-            u[0].falseo();
-            setCursor(new Cursor(0));
+    /**
+     * Destroy the component - replaces Applet.destroy()
+     */
+    public void destroy() {
+        stop();
+        if (offImage != null) {
+            offImage.flush();
+            offImage = null;
         }
-        return false;
-    }
-
-    @Override
-    public boolean gotFocus(Event event, Object obj) {
-        if (!exwist && lostfcs)
-            lostfcs = false;
-        return false;
+        if (sg != null) {
+            sg.dispose();
+            sg = null;
+        }
+        rd = null;
     }
 
     private void savecookie(String filename, String num) {
@@ -290,34 +446,6 @@ public class GameSparker extends Applet implements Runnable {
         this.cropit(graphics2d, i, i_97_);
     }
 
-    public GameSparker() {
-
-        // INFO
-        System.out.println(IS_64_BIT + "BIT " + OPERATING_SYSTEM.toUpperCase());
-
-        // DS-patch: Dynamic libs path - BEGIN
-        String dllPath = "lib/dlls/";
-        if (IS_MAC) {
-            dllPath += "mac";
-        } else {
-            dllPath += (IS_WINDOWS ? "win" : "linux") + IS_64_BIT;
-        }
-        System.setProperty("org.lwjgl.librarypath", dllPath);
-        // DS-patch - END
-
-        BASSLoader.initializeBASS();
-
-        u = new Control[51];
-        mouses = 0;
-        xm = 0;
-        ym = 0;
-        lostfcs = false;
-        exwist = true;
-        nob = 0;
-        notb = 0;
-        view = 0;
-    }
-
     /**
      * @param input name of model you want id of
      * @return Position on model in array. If you spelled it wrong or if it doesn't
@@ -419,47 +547,6 @@ public class GameSparker extends Applet implements Runnable {
     }
 
     /**
-     * <a href=
-     * "http://www.expandinghead.net/keycode.html">http://www.expandinghead.net/keycode.html</a>
-     */
-    @Override
-    public boolean keyUp(Event event, int i) {
-        if (!exwist) {
-            if (i == 1004)
-                u[0].up = false;
-            if (i == 1005)
-                u[0].down = false;
-            if (i == 1007)
-                u[0].right = false;
-            if (i == 1006)
-                u[0].left = false;
-            if (i == 32)
-                u[0].handb = false;
-            if (i == 120 || i == 88 || i == 122 || i == 90)
-                u[0].lookback = 0;
-        }
-        return false;
-    }
-
-    @Override
-    public void start() {
-        if (gamer == null)
-            gamer = new Thread(this);
-        if (gamer.getState() == Thread.State.NEW)
-            gamer.start();
-    }
-
-    @Override
-    public boolean mouseDown(Event event, int i, int j) {
-        if (!exwist && mouses == 0) {
-            xm = i;
-            ym = j;
-            mouses = 1;
-        }
-        return false;
-    }
-
-    /**
      * Loads stage elements
      *
      * @param aconto      conto instance
@@ -507,6 +594,7 @@ public class GameSparker extends Applet implements Runnable {
         CheckPoints.customTrack = false;
 
         loadStage = stageDir + stageSubDir + checkpoints.stage + ".txt";
+        currentStageID = checkpoints.stage; // Update current stage for IGameEngine interface
         if (xtgraphics.nfmmode == 1) {
             stageSubDir = "nfm1/";
         } else if (xtgraphics.nfmmode == 2) {
@@ -1929,24 +2017,6 @@ public class GameSparker extends Applet implements Runnable {
         } while (true);
     }
 
-    @Override
-    public void init() {
-        /*
-         * load some fonts
-         */
-        new FontHandler();
-
-        offImage = createImage(GameFacts.screenWidth, GameFacts.screenHeight);
-        if (offImage != null) {
-            sg = offImage.getGraphics();
-            rd = ((Graphics2D) sg);
-            rd.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
-            rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-            rd.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
-            rd.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
-        }
-    }
-
     private void addFile(File source, File[] files, String path) {
         try {
             File tmpZip = File.createTempFile(source.getName(), null);
@@ -2001,7 +2071,8 @@ public class GameSparker extends Applet implements Runnable {
             }
         } else {
             try {
-                Runtime.getRuntime().exec("" + urlopen() + " " + string + "");
+                ProcessBuilder processBuilder = new ProcessBuilder(urlopen(), string);
+                processBuilder.start();
             } catch (final Exception exception) {
 
             }
@@ -2044,12 +2115,74 @@ public class GameSparker extends Applet implements Runnable {
         }
     }
 
+    // ========== IGameEngine Interface Implementation ==========
+    
     @Override
-    public boolean mouseMove(Event event, int i, int j) {
-        if (!exwist && !lostfcs) {
-            xm = i;
-            ym = j;
+    public String getGameState() {
+        return gameState;
+    }
+    
+    @Override
+    public int getGameStateID() {
+        return gameStateID;
+    }
+    
+    @Override
+    public boolean isRunning() {
+        return !exwist && gamer != null && gamer.isAlive();
+    }
+    
+    @Override
+    public int getCurrentStage() {
+        // Return the current stage being played
+        return currentStageID;
+    }
+    
+    @Override
+    public void saveGameProgress() {
+        // Delegate to existing save functionality
+        // This could be enhanced to save more comprehensive progress
+        savecookie("gameState", String.valueOf(gameStateID));
+    }
+    
+    @Override
+    public void loadGameProgress() {
+        // Load game progress - delegating to existing cookie reading
+        int savedState = readcookie("gameState");
+        if (savedState != -1) {
+            gameStateID = savedState;
         }
-        return false;
+    }
+    
+    @Override
+    public void handleInput(String inputType, int inputValue) {
+        // This method provides a generic input handling interface
+        // The actual input handling is done through the existing event listeners
+        // This could be enhanced to provide a unified input system
+        switch (inputType.toLowerCase()) {
+            case "keyboard":
+                // Handle keyboard input - current implementation uses KeyListener
+                break;
+            case "mouse":
+                // Handle mouse input - current implementation uses MouseListener
+                break;
+            default:
+                // Unknown input type - could log or handle differently
+                break;
+        }
+    }
+    
+    @Override
+    public void update(float deltaTime) {
+        // Update game logic - the main game logic update happens in the run() method
+        // This provides a frame-based update interface for better architecture
+        // For now, this is a placeholder that could be enhanced to separate
+        // update logic from the main run loop
+    }
+    
+    @Override
+    public void render() {
+        // Render the current frame - delegate to existing paint method
+        repaint();
     }
 }
