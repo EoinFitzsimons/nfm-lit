@@ -25,40 +25,35 @@
             <groupId>fallk.logmaster</groupId>
             <artifactId>logmaster</artifactId>
             <version>rev5</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/lib/logmaster-rev5.jar</systemPath>
+            <scope>compile</scope>
         </dependency>
         
         <dependency>
             <groupId>jouvieje.bass</groupId>
             <artifactId>NativeBass</artifactId>
             <version>1.0</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/lib/NativeBass.jar</systemPath>
+            <scope>compile</scope>
         </dependency>
         
         <dependency>
             <groupId>jouvieje.bass</groupId>
             <artifactId>NativeBass-Examples</artifactId>
             <version>1.0</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/lib/NativeBass-Examples.jar</systemPath>
+            <scope>compile</scope>
         </dependency>
         
         <dependency>
             <groupId>ds.nfm</groupId>
             <artifactId>dragshotMod</artifactId>
             <version>1.0</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/lib/dragshotMod.jar</systemPath>
+            <scope>compile</scope>
         </dependency>
         
         <dependency>
             <groupId>ds.nfm</groupId>
             <artifactId>javamod</artifactId>
             <version>1.0</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/lib/javamod.jar</systemPath>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 
