@@ -30,6 +30,7 @@ import java.util.zip.ZipInputStream;
  * @author Jacherr
  */
 public class XtGraphics extends Panel implements Runnable {
+    private CheckPoints stageSelectCheckpoints = null;
     /**
      *
      */
@@ -139,6 +140,10 @@ public class XtGraphics extends Panel implements Runnable {
     private final Image[] contin;
     private final Image[] ostar;
     private final Image[] star;
+    
+    // Race Settings UI
+    private RaceSettingsUI raceSettingsUI;
+    
     private int pcontin;
     private int pnext;
     private int pback;
@@ -3510,6 +3515,7 @@ public class XtGraphics extends Panel implements Runnable {
     }
 
     public void stageselect(CheckPoints checkpoints, Control control) {
+    this.stageSelectCheckpoints = checkpoints;
         intertrack.play();
 
         // rd.setFont(new Font("Adventure", 1, 30));
@@ -3579,6 +3585,52 @@ public class XtGraphics extends Panel implements Runnable {
             fase = Phase.NPLAYERSCHECK;
             control.left = false;
         }
+    // --- Permanent Race Settings Panel (top-right) ---
+    int panelWidth = 180;
+    int panelHeight = 70;
+    int panelX = GameFacts.screenWidth - panelWidth - 30;
+    int panelY = 30;
+    rd.setColor(new Color(20, 20, 20, 180));
+    rd.fillRoundRect(panelX, panelY, panelWidth, panelHeight, 18, 18);
+    rd.setColor(new Color(255, 128, 0));
+    rd.drawRoundRect(panelX, panelY, panelWidth, panelHeight, 18, 18);
+    rd.setFont(new Font("SansSerif", Font.BOLD, 13));
+    rd.setColor(Color.WHITE);
+    rd.drawString("Race Settings", panelX + 16, panelY + 22);
+
+    rd.setFont(new Font("SansSerif", Font.PLAIN, 12));
+    // AI Racers
+    rd.setColor(Color.WHITE);
+    rd.drawString("AI Racers:", panelX + 16, panelY + 40);
+    rd.setColor(Color.CYAN);
+    rd.drawString("" + (GameFacts.numberOfPlayers - 1), panelX + 110, panelY + 40);
+    // Laps
+    rd.setColor(Color.WHITE);
+    rd.drawString("Laps:", panelX + 16, panelY + 60);
+    rd.setColor(Color.CYAN);
+    rd.drawString("" + checkpoints.nlaps, panelX + 110, panelY + 60);
+
+    // Draw adjustment arrows (styled like other menus)
+    int arrowY1 = panelY + 36;
+    int arrowY2 = panelY + 56;
+    int arrowLeftX = panelX + 90;
+    int arrowRightX = panelX + 140;
+    rd.setColor(Color.LIGHT_GRAY);
+    rd.fillRect(arrowLeftX, arrowY1 - 10, 16, 16);
+    rd.fillRect(arrowRightX, arrowY1 - 10, 16, 16);
+    rd.fillRect(arrowLeftX, arrowY2 - 10, 16, 16);
+    rd.fillRect(arrowRightX, arrowY2 - 10, 16, 16);
+    rd.setColor(Color.DARK_GRAY);
+    rd.drawRect(arrowLeftX, arrowY1 - 10, 16, 16);
+    rd.drawRect(arrowRightX, arrowY1 - 10, 16, 16);
+    rd.drawRect(arrowLeftX, arrowY2 - 10, 16, 16);
+    rd.drawRect(arrowRightX, arrowY2 - 10, 16, 16);
+    rd.setColor(Color.BLACK);
+    rd.setFont(new Font("SansSerif", Font.BOLD, 14));
+    rd.drawString("-", arrowLeftX + 4, arrowY1 + 2);
+    rd.drawString("+", arrowRightX + 3, arrowY1 + 2);
+    rd.drawString("-", arrowLeftX + 4, arrowY2 + 2);
+    rd.drawString("+", arrowRightX + 3, arrowY2 + 2);
     }
 
     public void snap(int i) {
@@ -3890,6 +3942,10 @@ public class XtGraphics extends Panel implements Runnable {
         pnext = 0;
         pback = 0;
         pstar = 0;
+        
+        // Initialize Race Settings UI
+        raceSettingsUI = new RaceSettingsUI();
+        
         ocntdn = new Image[4];
         cntdn = new Image[4];
         gocnt = 0;
@@ -5063,6 +5119,58 @@ public class XtGraphics extends Panel implements Runnable {
 
     public void ctachm(int i, int j, int k, Control control) {
         if (fase == Phase.STAGESELECT) {
+            // Handle Race Settings panel input
+            int panelWidth = 180;
+            int panelX = GameFacts.screenWidth - panelWidth - 30;
+            int panelY = 30;
+            int arrowY1 = panelY + 36;
+            int arrowY2 = panelY + 56;
+            int arrowLeftX = panelX + 90;
+            int arrowRightX = panelX + 140;
+            // Mouse click
+            if (k == 1 && stageSelectCheckpoints != null) {
+                // AI -
+                if (i >= arrowLeftX && i <= arrowLeftX + 16 && j >= arrowY1 - 10 && j <= arrowY1 + 6) {
+                    if (GameFacts.numberOfPlayers > 2) GameFacts.numberOfPlayers--;
+                }
+                // AI +
+                if (i >= arrowRightX && i <= arrowRightX + 16 && j >= arrowY1 - 10 && j <= arrowY1 + 6) {
+                    if (GameFacts.numberOfPlayers < 16) GameFacts.numberOfPlayers++;
+                }
+                // Laps -
+                if (i >= arrowLeftX && i <= arrowLeftX + 16 && j >= arrowY2 - 10 && j <= arrowY2 + 6) {
+                    if (stageSelectCheckpoints.nlaps > 1) stageSelectCheckpoints.nlaps--;
+                }
+                // Laps +
+                if (i >= arrowRightX && i <= arrowRightX + 16 && j >= arrowY2 - 10 && j <= arrowY2 + 6) {
+                    if (stageSelectCheckpoints.nlaps < 99) stageSelectCheckpoints.nlaps++;
+                }
+            }
+            // Keyboard left/right for AI, up/down for laps
+            if (k == 2 && stageSelectCheckpoints != null) {
+                if (control.left) {
+                    if (GameFacts.numberOfPlayers > 2) GameFacts.numberOfPlayers--;
+                    control.left = false;
+                }
+                if (control.right) {
+                    if (GameFacts.numberOfPlayers < 16) GameFacts.numberOfPlayers++;
+                    control.right = false;
+                }
+                if (control.up) {
+                    if (stageSelectCheckpoints.nlaps < 99) stageSelectCheckpoints.nlaps++;
+                    control.up = false;
+                }
+                if (control.down) {
+                    if (stageSelectCheckpoints.nlaps > 1) stageSelectCheckpoints.nlaps--;
+                    control.down = false;
+                }
+            }
+            // Handle Race Settings UI mouse clicks first
+            if (raceSettingsUI != null && raceSettingsUI.handleMouseClick(i, j)) {
+                // Race settings UI handled the click, don't process other stage select controls
+                return;
+            }
+            
             if (k == 1) {
                 if (over(next[0], i, j, stage_select_next_button_x, stage_select_next_back_button_y)) {
                     pnext = 1;
