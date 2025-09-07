@@ -40,8 +40,8 @@ public class GameSparker extends JPanel implements IGameEngine, Runnable, KeyLis
     public static final String WORKING_DIRECTORY = StageConfig.WORKING_DIRECTORY;
     public static final boolean DEBUG = StageConfig.DEBUG;
 
-    // Game models
-    private static final String[] carModels = CarConfig.CAR_MODELS;
+    // Game models - Enhanced 50-car system
+    private static final String[] carModels = EnhancedCarSystem.ENHANCED_CAR_MODELS;
     private static final String[] trackModels = StageConfig.TRACK_MODELS;
     private static final String[] extraModels = {};
 
@@ -989,25 +989,18 @@ public class GameSparker extends JPanel implements IGameEngine, Runnable, KeyLis
         xtgraphics.resetstat(checkpoints.stage);
         j1 = 0;
         do {
-            // Only allow car model indices (0..CAR_MODELS.length-1) for player and AI
+            // Only allow car model indices (0..ENHANCED_CAR_MODELS.length-1) for player and AI
             int carModelIdx = xtgraphics.sc[j1];
-            if (carModelIdx >= 0 && carModelIdx < nfm.lit.CarConfig.CAR_MODELS.length) {
-                if (j1 % 3 == 0) {
-                    aconto[j1] = new ContO(aconto1[carModelIdx], 0, 250 - aconto1[carModelIdx].grat,
-                            -760 + ((j1 / 3) * 760), 0);
-                }
-                if (j1 % 3 == 1) {
-                    aconto[j1] = new ContO(aconto1[carModelIdx], -350, 250 - aconto1[carModelIdx].grat,
-                            -380 + ((int) (j1 / 3) * 760), 0);
-                }
-                if (j1 % 3 == 2) {
-                    aconto[j1] = new ContO(aconto1[carModelIdx], 350, 250 - aconto1[carModelIdx].grat,
-                            -380 + ((int) (j1 / 3) * 760), 0);
-                }
+            if (carModelIdx >= 0 && carModelIdx < EnhancedCarSystem.ENHANCED_CAR_MODELS.length) {
+                // Use enhanced grid positioning system
+                EnhancedCarSystem.GridPosition pos = EnhancedCarSystem.generateGridPositions()[j1];
+                aconto[j1] = new ContO(aconto1[carModelIdx], pos.x, 250 - aconto1[carModelIdx].grat,
+                        pos.y, 0);
                 amadness[j1].reseto(carModelIdx, aconto[j1], checkpoints);
             } else {
                 // fallback: use first car model if index is out of range
-                aconto[j1] = new ContO(aconto1[0], 0, 250 - aconto1[0].grat, -760 + ((j1 / 3) * 760), 0);
+                EnhancedCarSystem.GridPosition pos = EnhancedCarSystem.generateGridPositions()[j1];
+                aconto[j1] = new ContO(aconto1[0], pos.x, 250 - aconto1[0].grat, pos.y, 0);
                 amadness[j1].reseto(0, aconto[j1], checkpoints);
             }
         } while (++j1 < GameFacts.numberOfPlayers);

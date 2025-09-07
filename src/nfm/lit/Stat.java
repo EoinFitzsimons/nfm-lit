@@ -64,20 +64,20 @@ public class Stat {
      * @param car the car
      */
     public Stat(final int car) {
-        acelf = StatList.acelf[car].clone();
-        swits = StatList.swits[car].clone();
-        airc = StatList.airc[car];
-        airs = StatList.airs[car];
-        bounce = StatList.bounce[car];
-        clrad = StatList.clrad[car];
-        comprad = StatList.comprad[car];
-        dammult = StatList.dammult[car];
-        flipy = StatList.flipy[car];
-        grip = StatList.grip[car];
-        handb = StatList.handb[car];
-        lift = StatList.lift[car];
-        maxmag = StatList.maxmag[car];
-        moment = StatList.moment[car];
+        acelf = EnhancedStatList.ENHANCED_ACELF[car].clone();
+        swits = EnhancedStatList.ENHANCED_SWITS[car].clone();
+        airc = EnhancedStatList.ENHANCED_AIRC[car];
+        airs = EnhancedStatList.ENHANCED_AIRS[car];
+        bounce = EnhancedStatList.ENHANCED_BOUNCE[car];
+        clrad = EnhancedStatList.ENHANCED_CLRAD[car];
+        comprad = EnhancedStatList.ENHANCED_COMPRAD[car];
+        dammult = EnhancedStatList.ENHANCED_DAMMULT[car];
+        flipy = EnhancedStatList.ENHANCED_FLIPY[car];
+        grip = EnhancedStatList.ENHANCED_GRIP[car];
+        handb = EnhancedStatList.ENHANCED_HANDB[car];
+        lift = EnhancedStatList.ENHANCED_LIFT[car];
+        maxmag = EnhancedStatList.ENHANCED_MAXMAG[car];
+        moment = EnhancedStatList.ENHANCED_MOMENT[car];
         msquash = StatList.msquash[car];
         powerloss = StatList.powerloss[car];
         push = StatList.push[car];

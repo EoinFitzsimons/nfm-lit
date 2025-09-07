@@ -100,25 +100,70 @@ public class RaceSettingsManager {
         // Based on XtGraphics carselect() logic: "(sc[0] - 7) * 2 < unlocked"
         this.unlockedStages = Math.max(1, sc[0] - 7);
         
+        // Update available tracks (17 total tracks in NFM)
+        initializeAllTracks();
+        
         // Unlock cars based on stage progression
         updateCarUnlocks();
     }
     
     /**
-     * Update car unlocks based on stage progression
+     * Initialize all 17 NFM tracks
+     */
+    private void initializeAllTracks() {
+        availableTracks.clear();
+        
+        // Load actual track data from stage files
+        List<TrackMetadata> loadedTracks = TrackMetadata.StageLoader.loadAllTracks();
+        
+        if (!loadedTracks.isEmpty()) {
+            availableTracks.addAll(loadedTracks);
+        } else {
+            // Fallback: create a default track if files can't be loaded
+            TrackMetadata fallbackTrack = new TrackMetadata();
+            availableTracks.add(fallbackTrack);
+        }
+    }
+    
+    /**
+     * Update car unlocks based on NFM progression system:
+     * - Cars 0-7 available from start (2000tornados through koolkat)
+     * - Boss cars unlock after completing their second track:
+     *   - Car 8 (drifter) after track 2
+     *   - Car 9 (policecops) after track 4  
+     *   - Car 10 (mustang) after track 6
+     *   - Car 11 (king) after track 8
+     *   - Car 12 (audir8) after track 10
+     *   - Car 13 (masheen) after track 12
+     *   - Car 14 (radicalone) after track 14
+     *   - Car 15 (drmonster) after track 16
+     * - Track 17 is playground with all cars
      */
     private void updateCarUnlocks() {
         unlockedCars.clear();
         
-        // Always unlock first car
-        unlockedCars.add(0);
-        
-        // Unlock cars based on stages completed
-        // This follows the existing NFM unlock pattern
-        int carsToUnlock = Math.min(GameFacts.numberOfCars, unlockedStages * 2);
-        for (int i = 0; i < carsToUnlock; i++) {
+        // Cars 0-7 are available from the start
+        for (int i = 0; i < 8; i++) {
             unlockedCars.add(i);
         }
+        
+        // Boss cars unlock after completing their second track
+        // Car 8 (drifter) unlocks after track 2
+        if (unlockedStages >= 2) unlockedCars.add(8);
+        // Car 9 (policecops) unlocks after track 4
+        if (unlockedStages >= 4) unlockedCars.add(9);
+        // Car 10 (mustang) unlocks after track 6
+        if (unlockedStages >= 6) unlockedCars.add(10);
+        // Car 11 (king) unlocks after track 8
+        if (unlockedStages >= 8) unlockedCars.add(11);
+        // Car 12 (audir8) unlocks after track 10
+        if (unlockedStages >= 10) unlockedCars.add(12);
+        // Car 13 (masheen) unlocks after track 12
+        if (unlockedStages >= 12) unlockedCars.add(13);
+        // Car 14 (radicalone) unlocks after track 14
+        if (unlockedStages >= 14) unlockedCars.add(14);
+        // Car 15 (drmonster) unlocks after track 16
+        if (unlockedStages >= 16) unlockedCars.add(15);
     }
     
     /**

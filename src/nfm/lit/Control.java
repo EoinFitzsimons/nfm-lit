@@ -1574,7 +1574,7 @@ public class Control {
                                 right = true;
                                 lastl = false;
                             }
-                            if (Math.abs(j - pan) > 50 && madness.speed > StatList.swits[madness.cn][0]
+                            if (Math.abs(j - pan) > 50 && madness.speed > EnhancedStatList.ENHANCED_SWITS[madness.cn][0]
                                     && turntyp != 0) {
                                 if (turntyp == 1) {
                                     down = true;
@@ -1595,7 +1595,7 @@ public class Control {
                             left = true;
                             lastl = true;
                         }
-                        if (Math.abs(j - pan) < 310 && madness.speed > StatList.swits[madness.cn][0]
+                        if (Math.abs(j - pan) < 310 && madness.speed > EnhancedStatList.ENHANCED_SWITS[madness.cn][0]
                                 && turntyp != 0) {
                             if (turntyp == 1) {
                                 down = true;

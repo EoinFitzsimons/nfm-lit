@@ -5007,13 +5007,13 @@ public class XtGraphics extends Panel implements Runnable {
                      * draw_carselect_stat
                      */
 
-                    float f = (StatList.swits[sc[0]][2] - 220) / 90F;
+                    float f = (EnhancedStatList.ENHANCED_SWITS[sc[0]][2] - 220) / 90F;
                     if (f < 0.20000000000000001D) {
                         f = 0.2F;
                     }
                     draw_carselect_stat("Top Speed:", leftside_statbar_x, statbar_initial_y, f);
 
-                    f = (StatList.acelf[sc[0]][1] * StatList.acelf[sc[0]][0] * StatList.acelf[sc[0]][2]
+                    f = (EnhancedStatList.ENHANCED_ACELF[sc[0]][1] * EnhancedStatList.ENHANCED_ACELF[sc[0]][0] * EnhancedStatList.ENHANCED_ACELF[sc[0]][2]
                             * StatList.grip[sc[0]]) / 7700F;
                     if (f > 1.0F) {
                         f = 1.0F;

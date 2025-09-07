@@ -9,9 +9,9 @@ public class GameFacts
 {
      public static final int numberOfStages = 17; //make sure to change xtg loadmusic, xtg hipno, and xtg sndsize
 
-     public static final int numberOfCars = 16;
+     public static final int numberOfCars = 50; // Enhanced to support 50 cars
 
-     public static int numberOfPlayers = 7;
+     public static int numberOfPlayers = 50; // Enhanced to support 50-car races
 
      public static int screenWidth = 1280; //dont touch this if you don't know what you're doing
 

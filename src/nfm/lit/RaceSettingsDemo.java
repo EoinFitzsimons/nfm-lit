@@ -16,16 +16,26 @@ public class RaceSettingsDemo {
         RaceSettingsManager manager = RaceSettingsManager.getInstance();
         
         // Simulate unlock progression (normally comes from XtGraphics sc[] array)
-        int[] sc = {7, 1, 2, 3, 4, 5, 6}; // Sample sc array (stage 0, 6 AI cars)
+        // Let's simulate a player who has completed track 4 (unlocked policecops)
+        int[] sc = {11, 1, 2, 3, 4, 5, 6}; // Track 4 completed (11-7=4)
         manager.updateUnlockProgression(sc);
         
-        System.out.println("\n1. Available Cars:");
+        System.out.println("Game Progression: Track " + (sc[0] - 7) + " completed");
+        System.out.println("Boss cars unlocked: " + (manager.getUnlockedCars().size() - 8) + " (plus 8 starting cars)");
+        
+        System.out.println("\n1. All Available Cars in Game:");
+        for (int i = 0; i < CarConfig.CAR_MODELS.length; i++) {
+            String status = manager.isCarUnlocked(i) ? "UNLOCKED" : "locked";
+            System.out.println("  - " + CarConfig.CAR_MODELS[i] + " (index " + i + ") [" + status + "]");
+        }
+        
+        System.out.println("\n2. Currently Unlocked Cars:");
         var unlockedCars = manager.getUnlockedCars();
         for (int carIndex : unlockedCars) {
             System.out.println("  - " + manager.getCarName(carIndex) + " (index " + carIndex + ")");
         }
         
-        System.out.println("\n2. Available Tracks:");
+        System.out.println("\n3. Available Tracks:");
         var unlockedTracks = manager.getUnlockedTracks();
         for (int i = 0; i < unlockedTracks.size(); i++) {
             TrackMetadata track = unlockedTracks.get(i);
@@ -35,7 +45,7 @@ public class RaceSettingsDemo {
         }
         
         // Configure a race
-        System.out.println("\n3. Configuring Race:");
+        System.out.println("\n4. Configuring Race:");
         RaceSettings settings = new RaceSettings();
         settings.setTrackIndex(0); // First track
         settings.setLaps(5);
@@ -65,7 +75,7 @@ public class RaceSettingsDemo {
         
         if (applied) {
             // Generate race configuration
-            System.out.println("\n4. Race Configuration:");
+            System.out.println("\n5. Race Configuration:");
             var config = manager.createRaceConfiguration();
             
             System.out.println("  Player Cars: " + config.getPlayerCars());
@@ -91,7 +101,7 @@ public class RaceSettingsDemo {
         }
         
         // Test different difficulties
-        System.out.println("\n5. Difficulty Settings:");
+        System.out.println("\n6. Difficulty Settings:");
         for (RaceSettings.Difficulty difficulty : RaceSettings.Difficulty.values()) {
             System.out.println("  " + difficulty.getDisplayName() + 
                 ": AI Speed x" + difficulty.getAiSpeedMultiplier());
@@ -99,7 +109,7 @@ public class RaceSettingsDemo {
         
         // Show track metadata details
         if (!unlockedTracks.isEmpty()) {
-            System.out.println("\n6. Sample Track Metadata:");
+            System.out.println("\n7. Sample Track Metadata:");
             TrackMetadata track = unlockedTracks.get(0);
             System.out.println("  Name: " + track.getTrackName());
             System.out.println("  Default Laps: " + track.getDefaultLaps());
