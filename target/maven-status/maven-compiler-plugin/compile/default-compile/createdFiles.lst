@@ -50,6 +50,7 @@ nfm\lit\EnhancedGameIntegration$EnhancedStats.class
 nfm\lit\RunApp$1.class
 nfm\lit\Stat.class
 nfm\lit\Phase.class
+nfm\lit\TestCarCreation.class
 nfm\lit\ExtensibilityTest.class
 nfm\lit\RadqModelManager.class
 nfm\lit\DesktopStub.class

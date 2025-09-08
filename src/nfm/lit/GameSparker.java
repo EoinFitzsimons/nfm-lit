@@ -515,9 +515,15 @@ public class GameSparker extends JPanel implements IGameEngine, Runnable, KeyLis
                 final int trackCount = trackModels.length;
                 // final int extraCount = extraModels.length;
 
-                for (int car = 0; car < carModels.length; car++)
-                    if (zipentry.getName().startsWith(carModels[car]))
+                // Debug output: Log each entry being processed
+                HLogger.info("Processing zip entry: " + zipentry.getName());
+
+                for (int car = 0; car < carModels.length; car++) {
+                    if (zipentry.getName().startsWith(carModels[car])) {
                         modelId = car;
+                        HLogger.info("Found car model: " + carModels[car] + " at index " + car);
+                    }
+                }
 
                 for (int track = 0; track < trackModels.length; track++)
                     if (zipentry.getName().startsWith(trackModels[track]))
@@ -555,6 +561,13 @@ public class GameSparker extends JPanel implements IGameEngine, Runnable, KeyLis
             /*
              * be sure to add your added arrays here
              */
+            
+            // Debug: List all expected car models
+            HLogger.info("Expected car models (" + carModels.length + " total):");
+            for (int i = 0; i < carModels.length; i++) {
+                HLogger.info("  " + i + ": " + carModels[i]);
+            }
+            
             HLogger.info("Contos loaded: " + (carModels.length + trackModels.length + extraModels.length));
             ContosCount = carModels.length + trackModels.length + extraModels.length;
             zipinputstream.close();

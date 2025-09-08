@@ -214,432 +214,1969 @@ public class EnhancedCarSystem {
      * VelocityX - Individual speed demon car (sharp angular design)
      * Inspired by formula7's aerodynamic structure but with unique angular geometry
      */
-    private static void createVelocityX() throws IOException {
+    public static void createVelocityX() throws IOException {
         StringBuilder model = new StringBuilder();
         
-        // Advanced aerodynamic frame - idiv(185) for high complexity
-        model.append("idiv(185)\n");
-        model.append("iwid(108)\n");
+        // Professional racing car - high polygon count for realistic detail
+        model.append("idiv(210)\n");
+        model.append("iwid(115)\n");
         model.append("shadow()\n\n");
         
-        // === MAIN CHASSIS STRUCTURE ===
+        // === DETAILED NOSE CONE ASSEMBLY ===
         
-        // Lower chassis frame - left side
-        model.append("// Lower chassis frame - left side\n");
+        // Front nose tip - ultra sharp point
+        model.append("// Front nose tip - racing point\n");
         model.append("<p>\n");
-        model.append("c(25,25,35)\n"); // Dark charcoal base
+        model.append("c(220,220,225)\n"); // Bright silver nose
         model.append("fs(-1)\n");
-        model.append("p(-42,-25,85)\n");
-        model.append("p(-42,-25,25)\n");
-        model.append("p(-38,-30,20)\n");
-        model.append("p(-38,-30,80)\n");
-        model.append("p(-35,-28,88)\n");
-        model.append("p(-32,-25,92)\n");
+        model.append("p(-8,-15,112)\n");
+        model.append("p(-4,-18,114)\n");
+        model.append("p(0,-20,115)\n");
+        model.append("p(4,-18,114)\n");
+        model.append("p(8,-15,112)\n");
+        model.append("p(6,-12,110)\n");
+        model.append("p(-6,-12,110)\n");
         model.append("</p>\n\n");
         
-        // Lower chassis frame - right side
-        model.append("// Lower chassis frame - right side\n");
+        // Nose cone upper section - left
+        model.append("// Nose cone upper section - left\n");
         model.append("<p>\n");
-        model.append("c(25,25,35)\n");
+        model.append("c(200,200,210)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-6,-12,110)\n");
+        model.append("p(-12,-10,108)\n");
+        model.append("p(-18,-8,106)\n");
+        model.append("p(-24,-6,104)\n");
+        model.append("p(-30,-4,102)\n");
+        model.append("p(-28,-8,100)\n");
+        model.append("p(-22,-10,102)\n");
+        model.append("p(-16,-12,104)\n");
+        model.append("p(-10,-14,106)\n");
+        model.append("</p>\n\n");
+        
+        // Nose cone upper section - right
+        model.append("// Nose cone upper section - right\n");
+        model.append("<p>\n");
+        model.append("c(200,200,210)\n");
         model.append("fs(1)\n");
-        model.append("p(42,-25,85)\n");
-        model.append("p(42,-25,25)\n");
-        model.append("p(38,-30,20)\n");
-        model.append("p(38,-30,80)\n");
-        model.append("p(35,-28,88)\n");
-        model.append("p(32,-25,92)\n");
+        model.append("p(6,-12,110)\n");
+        model.append("p(12,-10,108)\n");
+        model.append("p(18,-8,106)\n");
+        model.append("p(24,-6,104)\n");
+        model.append("p(30,-4,102)\n");
+        model.append("p(28,-8,100)\n");
+        model.append("p(22,-10,102)\n");
+        model.append("p(16,-12,104)\n");
+        model.append("p(10,-14,106)\n");
         model.append("</p>\n\n");
         
-        // Main body shell - left section
-        model.append("// Main body shell - left section\n");
+        // Nose cone lower section - left
+        model.append("// Nose cone lower section - left\n");
         model.append("<p>\n");
-        model.append("c(180,25,25)\n"); // Deep red primary color
+        model.append("c(180,180,190)\n");
         model.append("fs(-1)\n");
-        model.append("p(-35,-28,88)\n");
-        model.append("p(-35,-18,85)\n");
-        model.append("p(-32,-15,92)\n");
-        model.append("p(-32,-25,92)\n");
-        model.append("p(-28,-12,96)\n");
-        model.append("p(-28,-22,95)\n");
+        model.append("p(-10,-14,106)\n");
+        model.append("p(-16,-16,104)\n");
+        model.append("p(-22,-18,102)\n");
+        model.append("p(-28,-20,100)\n");
+        model.append("p(-32,-22,98)\n");
+        model.append("p(-30,-25,96)\n");
+        model.append("p(-24,-23,98)\n");
+        model.append("p(-18,-21,100)\n");
+        model.append("p(-12,-19,102)\n");
+        model.append("p(-8,-17,104)\n");
         model.append("</p>\n\n");
         
-        // Main body shell - right section
-        model.append("// Main body shell - right section\n");
+        // Nose cone lower section - right
+        model.append("// Nose cone lower section - right\n");
+        model.append("<p>\n");
+        model.append("c(180,180,190)\n");
+        model.append("fs(1)\n");
+        model.append("p(10,-14,106)\n");
+        model.append("p(16,-16,104)\n");
+        model.append("p(22,-18,102)\n");
+        model.append("p(28,-20,100)\n");
+        model.append("p(32,-22,98)\n");
+        model.append("p(30,-25,96)\n");
+        model.append("p(24,-23,98)\n");
+        model.append("p(18,-21,100)\n");
+        model.append("p(12,-19,102)\n");
+        model.append("p(8,-17,104)\n");
+        model.append("</p>\n\n");
+        
+        // === ADVANCED FRONT WING ASSEMBLY ===
+        
+        // Front wing main element - left
+        model.append("// Front wing main element - left\n");
+        model.append("<p>\n");
+        model.append("c(240,240,245)\n"); // Bright wing element
+        model.append("fs(-1)\n");
+        model.append("p(-35,-25,95)\n");
+        model.append("p(-40,-28,93)\n");
+        model.append("p(-45,-30,91)\n");
+        model.append("p(-48,-32,89)\n");
+        model.append("p(-46,-35,87)\n");
+        model.append("p(-41,-33,89)\n");
+        model.append("p(-36,-31,91)\n");
+        model.append("p(-32,-29,93)\n");
+        model.append("</p>\n\n");
+        
+        // Front wing main element - right
+        model.append("// Front wing main element - right\n");
+        model.append("<p>\n");
+        model.append("c(240,240,245)\n");
+        model.append("fs(1)\n");
+        model.append("p(35,-25,95)\n");
+        model.append("p(40,-28,93)\n");
+        model.append("p(45,-30,91)\n");
+        model.append("p(48,-32,89)\n");
+        model.append("p(46,-35,87)\n");
+        model.append("p(41,-33,89)\n");
+        model.append("p(36,-31,91)\n");
+        model.append("p(32,-29,93)\n");
+        model.append("</p>\n\n");
+        
+        // Front wing upper flap - left
+        model.append("// Front wing upper flap - left\n");
+        model.append("<p>\n");
+        model.append("c(220,220,230)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-32,-22,98)\n");
+        model.append("p(-36,-24,96)\n");
+        model.append("p(-40,-26,94)\n");
+        model.append("p(-42,-28,92)\n");
+        model.append("p(-40,-25,94)\n");
+        model.append("p(-36,-23,96)\n");
+        model.append("p(-32,-21,98)\n");
+        model.append("p(-30,-20,99)\n");
+        model.append("</p>\n\n");
+        
+        // Front wing upper flap - right
+        model.append("// Front wing upper flap - right\n");
+        model.append("<p>\n");
+        model.append("c(220,220,230)\n");
+        model.append("fs(1)\n");
+        model.append("p(32,-22,98)\n");
+        model.append("p(36,-24,96)\n");
+        model.append("p(40,-26,94)\n");
+        model.append("p(42,-28,92)\n");
+        model.append("p(40,-25,94)\n");
+        model.append("p(36,-23,96)\n");
+        model.append("p(32,-21,98)\n");
+        model.append("p(30,-20,99)\n");
+        model.append("</p>\n\n");
+        
+        // Wing endplates - left
+        model.append("// Wing endplates - left\n");
+        model.append("<p>\n");
+        model.append("c(200,200,210)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-48,-32,89)\n");
+        model.append("p(-50,-34,87)\n");
+        model.append("p(-50,-38,85)\n");
+        model.append("p(-48,-40,83)\n");
+        model.append("p(-46,-38,85)\n");
+        model.append("p(-46,-35,87)\n");
+        model.append("</p>\n\n");
+        
+        // Wing endplates - right
+        model.append("// Wing endplates - right\n");
+        model.append("<p>\n");
+        model.append("c(200,200,210)\n");
+        model.append("fs(1)\n");
+        model.append("p(48,-32,89)\n");
+        model.append("p(50,-34,87)\n");
+        model.append("p(50,-38,85)\n");
+        model.append("p(48,-40,83)\n");
+        model.append("p(46,-38,85)\n");
+        model.append("p(46,-35,87)\n");
+        model.append("</p>\n\n");
+        
+        // === MAIN CHASSIS AND BODY ===
+        
+        // Main chassis side - left upper
+        model.append("// Main chassis side - left upper\n");
+        model.append("<p>\n");
+        model.append("c(180,25,25)\n"); // Racing red
+        model.append("fs(-1)\n");
+        model.append("p(-30,-20,99)\n");
+        model.append("p(-28,-15,95)\n");
+        model.append("p(-26,-12,91)\n");
+        model.append("p(-24,-10,87)\n");
+        model.append("p(-22,-8,83)\n");
+        model.append("p(-24,-12,85)\n");
+        model.append("p(-26,-14,89)\n");
+        model.append("p(-28,-16,93)\n");
+        model.append("p(-30,-18,97)\n");
+        model.append("</p>\n\n");
+        
+        // Main chassis side - right upper
+        model.append("// Main chassis side - right upper\n");
         model.append("<p>\n");
         model.append("c(180,25,25)\n");
         model.append("fs(1)\n");
-        model.append("p(35,-28,88)\n");
-        model.append("p(35,-18,85)\n");
-        model.append("p(32,-15,92)\n");
-        model.append("p(32,-25,92)\n");
-        model.append("p(28,-12,96)\n");
-        model.append("p(28,-22,95)\n");
+        model.append("p(30,-20,99)\n");
+        model.append("p(28,-15,95)\n");
+        model.append("p(26,-12,91)\n");
+        model.append("p(24,-10,87)\n");
+        model.append("p(22,-8,83)\n");
+        model.append("p(24,-12,85)\n");
+        model.append("p(26,-14,89)\n");
+        model.append("p(28,-16,93)\n");
+        model.append("p(30,-18,97)\n");
         model.append("</p>\n\n");
         
-        // Upper body shell - left
-        model.append("// Upper body shell - left\n");
+        // Main chassis side - left lower
+        model.append("// Main chassis side - left lower\n");
         model.append("<p>\n");
-        model.append("c(200,40,40)\n"); // Bright red accent
+        model.append("c(160,20,20)\n"); // Darker red
         model.append("fs(-1)\n");
-        model.append("p(-28,-12,96)\n");
-        model.append("p(-28,-8,94)\n");
-        model.append("p(-24,-5,98)\n");
-        model.append("p(-24,-15,97)\n");
-        model.append("p(-20,-4,100)\n");
-        model.append("p(-20,-12,99)\n");
+        model.append("p(-30,-18,97)\n");
+        model.append("p(-32,-22,95)\n");
+        model.append("p(-34,-24,93)\n");
+        model.append("p(-36,-26,91)\n");
+        model.append("p(-38,-28,89)\n");
+        model.append("p(-40,-30,87)\n");
+        model.append("p(-38,-32,85)\n");
+        model.append("p(-36,-30,87)\n");
+        model.append("p(-34,-28,89)\n");
+        model.append("p(-32,-26,91)\n");
+        model.append("p(-30,-24,93)\n");
         model.append("</p>\n\n");
         
-        // Upper body shell - right
-        model.append("// Upper body shell - right\n");
-        model.append("<p>\n");
-        model.append("c(200,40,40)\n");
-        model.append("fs(1)\n");
-        model.append("p(28,-12,96)\n");
-        model.append("p(28,-8,94)\n");
-        model.append("p(24,-5,98)\n");
-        model.append("p(24,-15,97)\n");
-        model.append("p(20,-4,100)\n");
-        model.append("p(20,-12,99)\n");
-        model.append("</p>\n\n");
-        
-        // === AERODYNAMIC NOSE SECTION ===
-        
-        // Sharp aerodynamic nose - top section
-        model.append("// Sharp aerodynamic nose - top section\n");
-        model.append("<p>\n");
-        model.append("c(220,220,220)\n"); // Silver nose accent
-        model.append("fs(-1)\n");
-        model.append("p(-20,-4,100)\n");
-        model.append("p(-15,-6,102)\n");
-        model.append("p(-10,-8,103)\n");
-        model.append("p(-5,-10,104)\n");
-        model.append("p(0,-12,105)\n");
-        model.append("p(5,-10,104)\n");
-        model.append("p(10,-8,103)\n");
-        model.append("p(15,-6,102)\n");
-        model.append("p(20,-4,100)\n");
-        model.append("</p>\n\n");
-        
-        // Nose underbody - aerodynamic
-        model.append("// Nose underbody - aerodynamic\n");
-        model.append("<p>\n");
-        model.append("c(160,160,160)\n"); // Dark silver
-        model.append("fs(-1)\n");
-        model.append("p(-20,-12,99)\n");
-        model.append("p(-15,-15,101)\n");
-        model.append("p(-10,-18,102)\n");
-        model.append("p(-5,-20,103)\n");
-        model.append("p(0,-22,104)\n");
-        model.append("p(5,-20,103)\n");
-        model.append("p(10,-18,102)\n");
-        model.append("p(15,-15,101)\n");
-        model.append("p(20,-12,99)\n");
-        model.append("</p>\n\n");
-        
-        // === ADVANCED WINDSHIELD SYSTEM ===
-        
-        // Main windshield - curved design
-        model.append("// Main windshield - curved design\n");
-        model.append("<p>\n");
-        model.append("glass\n");
-        model.append("fs(0)\n");
-        model.append("gr(-15)\n"); // Gradient for realistic glass effect
-        model.append("p(-22,-18,45)\n");
-        model.append("p(-20,-4,100)\n");
-        model.append("p(20,-4,100)\n");
-        model.append("p(22,-18,45)\n");
-        model.append("p(18,-22,40)\n");
-        model.append("p(12,-25,35)\n");
-        model.append("p(-12,-25,35)\n");
-        model.append("p(-18,-22,40)\n");
-        model.append("</p>\n\n");
-        
-        // Side windows - left
-        model.append("// Side windows - left\n");
-        model.append("<p>\n");
-        model.append("glass\n");
-        model.append("fs(-1)\n");
-        model.append("p(-35,-18,85)\n");
-        model.append("p(-28,-12,96)\n");
-        model.append("p(-24,-15,97)\n");
-        model.append("p(-32,-22,88)\n");
-        model.append("p(-35,-25,82)\n");
-        model.append("</p>\n\n");
-        
-        // Side windows - right
-        model.append("// Side windows - right\n");
-        model.append("<p>\n");
-        model.append("glass\n");
-        model.append("fs(1)\n");
-        model.append("p(35,-18,85)\n");
-        model.append("p(28,-12,96)\n");
-        model.append("p(24,-15,97)\n");
-        model.append("p(32,-22,88)\n");
-        model.append("p(35,-25,82)\n");
-        model.append("</p>\n\n");
-        
-        // === PROFESSIONAL LIGHTING SYSTEM ===
-        
-        // Primary headlights - left
-        model.append("// Primary headlights - left\n");
-        model.append("<p>\n");
-        model.append("c(255,255,255)\n");
-        model.append("fs(-1)\n");
-        model.append("lightF\n");
-        model.append("gr(-25)\n");
-        model.append("p(-22,-12,98)\n");
-        model.append("p(-18,-15,100)\n");
-        model.append("p(-14,-12,99)\n");
-        model.append("p(-18,-9,99)\n");
-        model.append("</p>\n\n");
-        
-        // Primary headlights - right
-        model.append("// Primary headlights - right\n");
-        model.append("<p>\n");
-        model.append("c(255,255,255)\n");
-        model.append("fs(1)\n");
-        model.append("lightF\n");
-        model.append("gr(-25)\n");
-        model.append("p(22,-12,98)\n");
-        model.append("p(18,-15,100)\n");
-        model.append("p(14,-12,99)\n");
-        model.append("p(18,-9,99)\n");
-        model.append("</p>\n\n");
-        
-        // Secondary accent lights - left
-        model.append("// Secondary accent lights - left\n");
-        model.append("<p>\n");
-        model.append("c(255,255,255)\n");
-        model.append("fs(-1)\n");
-        model.append("lightF\n");
-        model.append("p(-26,-15,95)\n");
-        model.append("p(-24,-17,96)\n");
-        model.append("p(-22,-15,95)\n");
-        model.append("p(-24,-13,95)\n");
-        model.append("</p>\n\n");
-        
-        // Secondary accent lights - right
-        model.append("// Secondary accent lights - right\n");
-        model.append("<p>\n");
-        model.append("c(255,255,255)\n");
-        model.append("fs(1)\n");
-        model.append("lightF\n");
-        model.append("p(26,-15,95)\n");
-        model.append("p(24,-17,96)\n");
-        model.append("p(22,-15,95)\n");
-        model.append("p(24,-13,95)\n");
-        model.append("</p>\n\n");
-        
-        // === SIDE BODY DETAILS ===
-        
-        // Air intake vents - left
-        model.append("// Air intake vents - left\n");
-        model.append("<p>\n");
-        model.append("c(60,60,60)\n"); // Dark vent color
-        model.append("fs(-1)\n");
-        model.append("p(-38,-22,70)\n");
-        model.append("p(-36,-20,72)\n");
-        model.append("p(-34,-22,74)\n");
-        model.append("p(-36,-24,72)\n");
-        model.append("</p>\n\n");
-        
-        // Air intake vents - right
-        model.append("// Air intake vents - right\n");
-        model.append("<p>\n");
-        model.append("c(60,60,60)\n");
-        model.append("fs(1)\n");
-        model.append("p(38,-22,70)\n");
-        model.append("p(36,-20,72)\n");
-        model.append("p(34,-22,74)\n");
-        model.append("p(36,-24,72)\n");
-        model.append("</p>\n\n");
-        
-        // Side body panels - left
-        model.append("// Side body panels - left\n");
-        model.append("<p>\n");
-        model.append("c(160,20,20)\n"); // Darker red panels
-        model.append("fs(-1)\n");
-        model.append("p(-42,-25,25)\n");
-        model.append("p(-42,-25,-25)\n");
-        model.append("p(-38,-30,-30)\n");
-        model.append("p(-38,-30,20)\n");
-        model.append("p(-35,-28,25)\n");
-        model.append("p(-35,-28,-20)\n");
-        model.append("</p>\n\n");
-        
-        // Side body panels - right
-        model.append("// Side body panels - right\n");
+        // Main chassis side - right lower
+        model.append("// Main chassis side - right lower\n");
         model.append("<p>\n");
         model.append("c(160,20,20)\n");
         model.append("fs(1)\n");
-        model.append("p(42,-25,25)\n");
-        model.append("p(42,-25,-25)\n");
-        model.append("p(38,-30,-30)\n");
-        model.append("p(38,-30,20)\n");
-        model.append("p(35,-28,25)\n");
-        model.append("p(35,-28,-20)\n");
+        model.append("p(30,-18,97)\n");
+        model.append("p(32,-22,95)\n");
+        model.append("p(34,-24,93)\n");
+        model.append("p(36,-26,91)\n");
+        model.append("p(38,-28,89)\n");
+        model.append("p(40,-30,87)\n");
+        model.append("p(38,-32,85)\n");
+        model.append("p(36,-30,87)\n");
+        model.append("p(34,-28,89)\n");
+        model.append("p(32,-26,91)\n");
+        model.append("p(30,-24,93)\n");
         model.append("</p>\n\n");
         
-        // === ADVANCED REAR SECTION ===
+        // === SIDE PODS AND AIR INTAKES ===
         
-        // Rear body - left section
-        model.append("// Rear body - left section\n");
+        // Side pod main - left
+        model.append("// Side pod main - left\n");
+        model.append("<p>\n");
+        model.append("c(200,40,40)\n"); // Bright accent red
+        model.append("fs(-1)\n");
+        model.append("p(-40,-30,87)\n");
+        model.append("p(-42,-28,83)\n");
+        model.append("p(-44,-26,79)\n");
+        model.append("p(-46,-24,75)\n");
+        model.append("p(-48,-22,71)\n");
+        model.append("p(-46,-26,73)\n");
+        model.append("p(-44,-28,77)\n");
+        model.append("p(-42,-30,81)\n");
+        model.append("p(-40,-32,85)\n");
+        model.append("</p>\n\n");
+        
+        // Side pod main - right
+        model.append("// Side pod main - right\n");
+        model.append("<p>\n");
+        model.append("c(200,40,40)\n");
+        model.append("fs(1)\n");
+        model.append("p(40,-30,87)\n");
+        model.append("p(42,-28,83)\n");
+        model.append("p(44,-26,79)\n");
+        model.append("p(46,-24,75)\n");
+        model.append("p(48,-22,71)\n");
+        model.append("p(46,-26,73)\n");
+        model.append("p(44,-28,77)\n");
+        model.append("p(42,-30,81)\n");
+        model.append("p(40,-32,85)\n");
+        model.append("</p>\n\n");
+        
+        // Air intake opening - left
+        model.append("// Air intake opening - left\n");
+        model.append("<p>\n");
+        model.append("c(60,60,60)\n"); // Dark intake
+        model.append("fs(-1)\n");
+        model.append("p(-46,-24,75)\n");
+        model.append("p(-48,-22,73)\n");
+        model.append("p(-50,-20,71)\n");
+        model.append("p(-48,-18,69)\n");
+        model.append("p(-46,-20,71)\n");
+        model.append("p(-44,-22,73)\n");
+        model.append("</p>\n\n");
+        
+        // Air intake opening - right
+        model.append("// Air intake opening - right\n");
+        model.append("<p>\n");
+        model.append("c(60,60,60)\n");
+        model.append("fs(1)\n");
+        model.append("p(46,-24,75)\n");
+        model.append("p(48,-22,73)\n");
+        model.append("p(50,-20,71)\n");
+        model.append("p(48,-18,69)\n");
+        model.append("p(46,-20,71)\n");
+        model.append("p(44,-22,73)\n");
+        model.append("</p>\n\n");
+        
+        // Side pod rear - left
+        model.append("// Side pod rear - left\n");
         model.append("<p>\n");
         model.append("c(180,25,25)\n");
         model.append("fs(-1)\n");
-        model.append("p(-35,-28,-20)\n");
-        model.append("p(-35,-18,-65)\n");
-        model.append("p(-32,-15,-75)\n");
-        model.append("p(-32,-25,-70)\n");
-        model.append("p(-28,-12,-80)\n");
-        model.append("p(-28,-22,-78)\n");
+        model.append("p(-48,-22,71)\n");
+        model.append("p(-46,-20,67)\n");
+        model.append("p(-44,-18,63)\n");
+        model.append("p(-42,-16,59)\n");
+        model.append("p(-40,-14,55)\n");
+        model.append("p(-42,-18,57)\n");
+        model.append("p(-44,-20,61)\n");
+        model.append("p(-46,-22,65)\n");
+        model.append("p(-48,-24,69)\n");
         model.append("</p>\n\n");
         
-        // Rear body - right section
-        model.append("// Rear body - right section\n");
+        // Side pod rear - right
+        model.append("// Side pod rear - right\n");
         model.append("<p>\n");
         model.append("c(180,25,25)\n");
         model.append("fs(1)\n");
-        model.append("p(35,-28,-20)\n");
-        model.append("p(35,-18,-65)\n");
-        model.append("p(32,-15,-75)\n");
-        model.append("p(32,-25,-70)\n");
-        model.append("p(28,-12,-80)\n");
-        model.append("p(28,-22,-78)\n");
+        model.append("p(48,-22,71)\n");
+        model.append("p(46,-20,67)\n");
+        model.append("p(44,-18,63)\n");
+        model.append("p(42,-16,59)\n");
+        model.append("p(40,-14,55)\n");
+        model.append("p(42,-18,57)\n");
+        model.append("p(44,-20,61)\n");
+        model.append("p(46,-22,65)\n");
+        model.append("p(48,-24,69)\n");
         model.append("</p>\n\n");
         
-        // High-performance rear spoiler - main section
-        model.append("// High-performance rear spoiler - main section\n");
+        // === COCKPIT AND WINDSHIELD ===
+        
+        // Cockpit opening main
+        model.append("// Cockpit opening main\n");
         model.append("<p>\n");
-        model.append("c(240,240,240)\n"); // Bright silver spoiler
+        model.append("glass\n");
+        model.append("fs(0)\n");
+        model.append("gr(-20)\n");
+        model.append("p(-22,-8,83)\n");
+        model.append("p(-18,-6,79)\n");
+        model.append("p(-14,-4,75)\n");
+        model.append("p(-10,-2,71)\n");
+        model.append("p(10,-2,71)\n");
+        model.append("p(14,-4,75)\n");
+        model.append("p(18,-6,79)\n");
+        model.append("p(22,-8,83)\n");
+        model.append("p(20,-12,81)\n");
+        model.append("p(16,-14,77)\n");
+        model.append("p(12,-16,73)\n");
+        model.append("p(-12,-16,73)\n");
+        model.append("p(-16,-14,77)\n");
+        model.append("p(-20,-12,81)\n");
+        model.append("</p>\n\n");
+        
+        // Windshield frame - left
+        model.append("// Windshield frame - left\n");
+        model.append("<p>\n");
+        model.append("c(100,100,110)\n"); // Dark frame
         model.append("fs(-1)\n");
-        model.append("p(-32,-8,-85)\n");
-        model.append("p(-32,-15,-85)\n");
-        model.append("p(-28,-18,-90)\n");
-        model.append("p(-28,-10,-95)\n");
-        model.append("p(-24,-8,-100)\n");
-        model.append("p(-20,-10,-102)\n");
-        model.append("p(20,-10,-102)\n");
-        model.append("p(24,-8,-100)\n");
-        model.append("p(28,-10,-95)\n");
-        model.append("p(28,-18,-90)\n");
-        model.append("p(32,-15,-85)\n");
-        model.append("p(32,-8,-85)\n");
+        model.append("p(-22,-8,83)\n");
+        model.append("p(-24,-10,85)\n");
+        model.append("p(-26,-12,87)\n");
+        model.append("p(-24,-6,81)\n");
+        model.append("p(-20,-4,79)\n");
+        model.append("p(-18,-6,79)\n");
+        model.append("p(-20,-12,81)\n");
         model.append("</p>\n\n");
         
-        // Rear spoiler supports - left
-        model.append("// Rear spoiler supports - left\n");
+        // Windshield frame - right
+        model.append("// Windshield frame - right\n");
         model.append("<p>\n");
-        model.append("c(100,100,100)\n"); // Dark support struts
-        model.append("fs(-1)\n");
-        model.append("p(-28,-12,-80)\n");
-        model.append("p(-28,-10,-95)\n");
-        model.append("p(-26,-10,-95)\n");
-        model.append("p(-26,-12,-80)\n");
-        model.append("</p>\n\n");
-        
-        // Rear spoiler supports - right
-        model.append("// Rear spoiler supports - right\n");
-        model.append("<p>\n");
-        model.append("c(100,100,100)\n");
+        model.append("c(100,100,110)\n");
         model.append("fs(1)\n");
-        model.append("p(28,-12,-80)\n");
-        model.append("p(28,-10,-95)\n");
-        model.append("p(26,-10,-95)\n");
-        model.append("p(26,-12,-80)\n");
+        model.append("p(22,-8,83)\n");
+        model.append("p(24,-10,85)\n");
+        model.append("p(26,-12,87)\n");
+        model.append("p(24,-6,81)\n");
+        model.append("p(20,-4,79)\n");
+        model.append("p(18,-6,79)\n");
+        
+        // === PROFESSIONAL LIGHTING SYSTEM ===
+        
+        // Front headlight cluster - left main
+        model.append("// Front headlight cluster - left main\n");
+        model.append("<p>\n");
+        model.append("c(255,255,255)\n");
+        model.append("fs(-1)\n");
+        model.append("lightF\n");
+        model.append("gr(-30)\n");
+        model.append("p(-30,-20,100)\n");
+        model.append("p(-26,-22,102)\n");
+        model.append("p(-22,-20,100)\n");
+        model.append("p(-26,-18,100)\n");
+        model.append("</p>\n\n");
+        
+        // Front headlight cluster - right main
+        model.append("// Front headlight cluster - right main\n");
+        model.append("<p>\n");
+        model.append("c(255,255,255)\n");
+        model.append("fs(1)\n");
+        model.append("lightF\n");
+        model.append("gr(-30)\n");
+        model.append("p(30,-20,100)\n");
+        model.append("p(26,-22,102)\n");
+        model.append("p(22,-20,100)\n");
+        model.append("p(26,-18,100)\n");
+        model.append("</p>\n\n");
+        
+        // Front headlight cluster - left secondary
+        model.append("// Front headlight cluster - left secondary\n");
+        model.append("<p>\n");
+        model.append("c(240,240,255)\n");
+        model.append("fs(-1)\n");
+        model.append("lightF\n");
+        model.append("p(-34,-22,98)\n");
+        model.append("p(-32,-24,99)\n");
+        model.append("p(-30,-22,98)\n");
+        model.append("p(-32,-20,98)\n");
+        model.append("</p>\n\n");
+        
+        // Front headlight cluster - right secondary
+        model.append("// Front headlight cluster - right secondary\n");
+        model.append("<p>\n");
+        model.append("c(240,240,255)\n");
+        model.append("fs(1)\n");
+        model.append("lightF\n");
+        model.append("p(34,-22,98)\n");
+        model.append("p(32,-24,99)\n");
+        model.append("p(30,-22,98)\n");
+        model.append("p(32,-20,98)\n");
+        model.append("</p>\n\n");
+        
+        // === MID-SECTION DETAILS ===
+        
+        // Mid-section transition - left
+        model.append("// Mid-section transition - left\n");
+        model.append("<p>\n");
+        model.append("c(200,40,40)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-40,-14,55)\n");
+        model.append("p(-38,-12,51)\n");
+        model.append("p(-36,-10,47)\n");
+        model.append("p(-34,-8,43)\n");
+        model.append("p(-32,-6,39)\n");
+        model.append("p(-34,-10,41)\n");
+        model.append("p(-36,-12,45)\n");
+        model.append("p(-38,-14,49)\n");
+        model.append("p(-40,-16,53)\n");
+        model.append("</p>\n\n");
+        
+        // Mid-section transition - right
+        model.append("// Mid-section transition - right\n");
+        model.append("<p>\n");
+        model.append("c(200,40,40)\n");
+        model.append("fs(1)\n");
+        model.append("p(40,-14,55)\n");
+        model.append("p(38,-12,51)\n");
+        model.append("p(36,-10,47)\n");
+        model.append("p(34,-8,43)\n");
+        model.append("p(32,-6,39)\n");
+        model.append("p(34,-10,41)\n");
+        model.append("p(36,-12,45)\n");
+        model.append("p(38,-14,49)\n");
+        model.append("p(40,-16,53)\n");
+        model.append("</p>\n\n");
+        
+        // Side panel detailing - left upper
+        model.append("// Side panel detailing - left upper\n");
+        model.append("<p>\n");
+        model.append("c(160,20,20)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-32,-6,39)\n");
+        model.append("p(-30,-4,35)\n");
+        model.append("p(-28,-2,31)\n");
+        model.append("p(-26,0,27)\n");
+        model.append("p(-24,2,23)\n");
+        model.append("p(-26,-2,25)\n");
+        model.append("p(-28,-4,29)\n");
+        model.append("p(-30,-6,33)\n");
+        model.append("p(-32,-8,37)\n");
+        model.append("</p>\n\n");
+        
+        // Side panel detailing - right upper
+        model.append("// Side panel detailing - right upper\n");
+        model.append("<p>\n");
+        model.append("c(160,20,20)\n");
+        model.append("fs(1)\n");
+        model.append("p(32,-6,39)\n");
+        model.append("p(30,-4,35)\n");
+        model.append("p(28,-2,31)\n");
+        model.append("p(26,0,27)\n");
+        model.append("p(24,2,23)\n");
+        model.append("p(26,-2,25)\n");
+        model.append("p(28,-4,29)\n");
+        model.append("p(30,-6,33)\n");
+        model.append("p(32,-8,37)\n");
+        model.append("</p>\n\n");
+        
+        // Side panel detailing - left lower
+        model.append("// Side panel detailing - left lower\n");
+        model.append("<p>\n");
+        model.append("c(140,15,15)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-24,2,23)\n");
+        model.append("p(-22,4,19)\n");
+        model.append("p(-20,6,15)\n");
+        model.append("p(-18,8,11)\n");
+        model.append("p(-16,10,7)\n");
+        model.append("p(-18,6,9)\n");
+        model.append("p(-20,4,13)\n");
+        model.append("p(-22,2,17)\n");
+        model.append("p(-24,0,21)\n");
+        model.append("</p>\n\n");
+        
+        // Side panel detailing - right lower
+        model.append("// Side panel detailing - right lower\n");
+        model.append("<p>\n");
+        model.append("c(140,15,15)\n");
+        model.append("fs(1)\n");
+        model.append("p(24,2,23)\n");
+        model.append("p(22,4,19)\n");
+        model.append("p(20,6,15)\n");
+        model.append("p(18,8,11)\n");
+        model.append("p(16,10,7)\n");
+        model.append("p(18,6,9)\n");
+        model.append("p(20,4,13)\n");
+        model.append("p(22,2,17)\n");
+        model.append("p(24,0,21)\n");
+        model.append("</p>\n\n");
+        
+        // === WHEEL WELL STRUCTURES ===
+        
+        // Front wheel well - left
+        model.append("// Front wheel well - left\n");
+        model.append("<p>\n");
+        model.append("c(80,80,90)\n"); // Dark wheel well
+        model.append("fs(-1)\n");
+        model.append("p(-45,-35,75)\n");
+        model.append("p(-50,-38,73)\n");
+        model.append("p(-52,-42,71)\n");
+        model.append("p(-50,-45,69)\n");
+        model.append("p(-45,-42,71)\n");
+        model.append("p(-42,-38,73)\n");
+        model.append("p(-40,-35,75)\n");
+        model.append("p(-42,-32,77)\n");
+        model.append("</p>\n\n");
+        
+        // Front wheel well - right
+        model.append("// Front wheel well - right\n");
+        model.append("<p>\n");
+        model.append("c(80,80,90)\n");
+        model.append("fs(1)\n");
+        model.append("p(45,-35,75)\n");
+        model.append("p(50,-38,73)\n");
+        model.append("p(52,-42,71)\n");
+        model.append("p(50,-45,69)\n");
+        model.append("p(45,-42,71)\n");
+        model.append("p(42,-38,73)\n");
+        model.append("p(40,-35,75)\n");
+        model.append("p(42,-32,77)\n");
+        model.append("</p>\n\n");
+        
+        // Rear wheel well - left
+        model.append("// Rear wheel well - left\n");
+        model.append("<p>\n");
+        model.append("c(80,80,90)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-45,-35,-45)\n");
+        model.append("p(-50,-38,-47)\n");
+        model.append("p(-52,-42,-49)\n");
+        model.append("p(-50,-45,-51)\n");
+        model.append("p(-45,-42,-49)\n");
+        model.append("p(-42,-38,-47)\n");
+        model.append("p(-40,-35,-45)\n");
+        model.append("p(-42,-32,-43)\n");
+        model.append("</p>\n\n");
+        
+        // Rear wheel well - right
+        model.append("// Rear wheel well - right\n");
+        model.append("<p>\n");
+        model.append("c(80,80,90)\n");
+        model.append("fs(1)\n");
+        model.append("p(45,-35,-45)\n");
+        model.append("p(50,-38,-47)\n");
+        model.append("p(52,-42,-49)\n");
+        model.append("p(50,-45,-51)\n");
+        model.append("p(45,-42,-49)\n");
+        model.append("p(42,-38,-47)\n");
+        model.append("p(40,-35,-45)\n");
+        model.append("p(42,-32,-43)\n");
+        model.append("</p>\n\n");
+        
+        // === REAR SECTION AND SPOILER ASSEMBLY ===
+        
+        // Rear body section - left detailed
+        model.append("// Rear body section - left detailed\n");
+        model.append("<p>\n");
+        model.append("c(180,25,25)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-16,10,7)\n");
+        model.append("p(-14,8,3)\n");
+        model.append("p(-12,6,-1)\n");
+        model.append("p(-10,4,-5)\n");
+        model.append("p(-8,2,-9)\n");
+        model.append("p(-10,6,-7)\n");
+        model.append("p(-12,8,-3)\n");
+        model.append("p(-14,10,1)\n");
+        model.append("p(-16,12,5)\n");
+        model.append("</p>\n\n");
+        
+        // Rear body section - right detailed
+        model.append("// Rear body section - right detailed\n");
+        model.append("<p>\n");
+        model.append("c(180,25,25)\n");
+        model.append("fs(1)\n");
+        model.append("p(16,10,7)\n");
+        model.append("p(14,8,3)\n");
+        model.append("p(12,6,-1)\n");
+        model.append("p(10,4,-5)\n");
+        model.append("p(8,2,-9)\n");
+        model.append("p(10,6,-7)\n");
+        model.append("p(12,8,-3)\n");
+        model.append("p(14,10,1)\n");
+        model.append("p(16,12,5)\n");
+        model.append("</p>\n\n");
+        
+        // Rear transition section - left
+        model.append("// Rear transition section - left\n");
+        model.append("<p>\n");
+        model.append("c(160,20,20)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-8,2,-9)\n");
+        model.append("p(-6,0,-13)\n");
+        model.append("p(-4,-2,-17)\n");
+        model.append("p(-2,-4,-21)\n");
+        model.append("p(0,-6,-25)\n");
+        model.append("p(-2,-2,-23)\n");
+        model.append("p(-4,0,-19)\n");
+        model.append("p(-6,2,-15)\n");
+        model.append("p(-8,4,-11)\n");
+        model.append("</p>\n\n");
+        
+        // Rear transition section - right
+        model.append("// Rear transition section - right\n");
+        model.append("<p>\n");
+        model.append("c(160,20,20)\n");
+        model.append("fs(1)\n");
+        model.append("p(8,2,-9)\n");
+        model.append("p(6,0,-13)\n");
+        model.append("p(4,-2,-17)\n");
+        model.append("p(2,-4,-21)\n");
+        model.append("p(0,-6,-25)\n");
+        model.append("p(2,-2,-23)\n");
+        model.append("p(4,0,-19)\n");
+        model.append("p(6,2,-15)\n");
+        model.append("p(8,4,-11)\n");
+        model.append("</p>\n\n");
+        
+        // Rear spoiler main wing
+        model.append("// Rear spoiler main wing\n");
+        model.append("<p>\n");
+        model.append("c(240,240,245)\n"); // Bright wing
+        model.append("fs(-1)\n");
+        model.append("p(-35,-5,-90)\n");
+        model.append("p(-30,-7,-95)\n");
+        model.append("p(-25,-9,-100)\n");
+        model.append("p(-20,-11,-105)\n");
+        model.append("p(-15,-13,-110)\n");
+        model.append("p(15,-13,-110)\n");
+        model.append("p(20,-11,-105)\n");
+        model.append("p(25,-9,-100)\n");
+        model.append("p(30,-7,-95)\n");
+        model.append("p(35,-5,-90)\n");
+        model.append("p(32,-8,-92)\n");
+        model.append("p(27,-10,-97)\n");
+        model.append("p(22,-12,-102)\n");
+        model.append("p(17,-14,-107)\n");
+        model.append("p(-17,-14,-107)\n");
+        model.append("p(-22,-12,-102)\n");
+        model.append("p(-27,-10,-97)\n");
+        model.append("p(-32,-8,-92)\n");
+        model.append("</p>\n\n");
+        
+        // Rear spoiler support struts - left
+        model.append("// Rear spoiler support struts - left\n");
+        model.append("<p>\n");
+        model.append("c(120,120,130)\n"); // Dark struts
+        model.append("fs(-1)\n");
+        model.append("p(-25,-6,-75)\n");
+        model.append("p(-25,-9,-100)\n");
+        model.append("p(-23,-9,-100)\n");
+        model.append("p(-23,-6,-75)\n");
+        model.append("</p>\n\n");
+        
+        // Rear spoiler support struts - center left
+        model.append("// Rear spoiler support struts - center left\n");
+        model.append("<p>\n");
+        model.append("c(120,120,130)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-10,-8,-80)\n");
+        model.append("p(-10,-13,-110)\n");
+        model.append("p(-8,-13,-110)\n");
+        model.append("p(-8,-8,-80)\n");
+        model.append("</p>\n\n");
+        
+        // Rear spoiler support struts - center right
+        model.append("// Rear spoiler support struts - center right\n");
+        model.append("<p>\n");
+        model.append("c(120,120,130)\n");
+        model.append("fs(1)\n");
+        model.append("p(10,-8,-80)\n");
+        model.append("p(10,-13,-110)\n");
+        model.append("p(8,-13,-110)\n");
+        model.append("p(8,-8,-80)\n");
+        model.append("</p>\n\n");
+        
+        // Rear spoiler support struts - right
+        model.append("// Rear spoiler support struts - right\n");
+        model.append("<p>\n");
+        model.append("c(120,120,130)\n");
+        model.append("fs(1)\n");
+        model.append("p(25,-6,-75)\n");
+        model.append("p(25,-9,-100)\n");
+        model.append("p(23,-9,-100)\n");
+        model.append("p(23,-6,-75)\n");
         model.append("</p>\n\n");
         
         // === REAR LIGHTING SYSTEM ===
         
-        // Main taillights - left
-        model.append("// Main taillights - left\n");
+        // Main taillights - left cluster
+        model.append("// Main taillights - left cluster\n");
         model.append("<p>\n");
-        model.append("c(200,60,60)\n"); // Red taillight
+        model.append("c(200,60,60)\n");
         model.append("fs(-1)\n");
         model.append("lightB\n");
-        model.append("p(-30,-15,-82)\n");
-        model.append("p(-26,-18,-84)\n");
-        model.append("p(-22,-15,-82)\n");
-        model.append("p(-26,-12,-82)\n");
+        model.append("p(-30,-8,-85)\n");
+        model.append("p(-26,-10,-87)\n");
+        model.append("p(-22,-8,-85)\n");
+        model.append("p(-26,-6,-85)\n");
         model.append("</p>\n\n");
         
-        // Main taillights - right
-        model.append("// Main taillights - right\n");
+        // Main taillights - right cluster
+        model.append("// Main taillights - right cluster\n");
         model.append("<p>\n");
         model.append("c(200,60,60)\n");
         model.append("fs(1)\n");
         model.append("lightB\n");
-        model.append("p(30,-15,-82)\n");
-        model.append("p(26,-18,-84)\n");
-        model.append("p(22,-15,-82)\n");
-        model.append("p(26,-12,-82)\n");
+        model.append("p(30,-8,-85)\n");
+        model.append("p(26,-10,-87)\n");
+        model.append("p(22,-8,-85)\n");
+        model.append("p(26,-6,-85)\n");
         model.append("</p>\n\n");
         
-        // Brake lights - left
-        model.append("// Brake lights - left\n");
+        // Brake lights - left high mount
+        model.append("// Brake lights - left high mount\n");
         model.append("<p>\n");
-        model.append("c(255,40,40)\n"); // Bright red brake lights
+        model.append("c(255,40,40)\n");
         model.append("fs(-1)\n");
         model.append("lightB\n");
-        model.append("p(-34,-18,-78)\n");
-        model.append("p(-32,-20,-79)\n");
-        model.append("p(-30,-18,-78)\n");
-        model.append("p(-32,-16,-78)\n");
+        model.append("p(-15,-5,-78)\n");
+        model.append("p(-12,-6,-79)\n");
+        model.append("p(-9,-5,-78)\n");
+        model.append("p(-12,-4,-78)\n");
         model.append("</p>\n\n");
         
-        // Brake lights - right
-        model.append("// Brake lights - right\n");
+        // Brake lights - right high mount
+        model.append("// Brake lights - right high mount\n");
         model.append("<p>\n");
         model.append("c(255,40,40)\n");
         model.append("fs(1)\n");
         model.append("lightB\n");
-        model.append("p(34,-18,-78)\n");
-        model.append("p(32,-20,-79)\n");
-        model.append("p(30,-18,-78)\n");
-        model.append("p(32,-16,-78)\n");
+        model.append("p(15,-5,-78)\n");
+        model.append("p(12,-6,-79)\n");
+        model.append("p(9,-5,-78)\n");
+        model.append("p(12,-4,-78)\n");
+        model.append("</p>\n\n");
+        
+        // Central brake light
+        model.append("// Central brake light\n");
+        model.append("<p>\n");
+        model.append("c(255,20,20)\n");
+        model.append("fs(-1)\n");
+        model.append("lightB\n");
+        model.append("p(-5,-4,-76)\n");
+        model.append("p(-2,-5,-77)\n");
+        model.append("p(2,-5,-77)\n");
+        model.append("p(5,-4,-76)\n");
+        model.append("p(3,-3,-76)\n");
+        model.append("p(-3,-3,-76)\n");
         model.append("</p>\n\n");
         
         // === UNDERBODY AERODYNAMICS ===
         
-        // Front underbody panel
-        model.append("// Front underbody panel\n");
+        // Front splitter - left section
+        model.append("// Front splitter - left section\n");
         model.append("<p>\n");
-        model.append("c(40,40,40)\n"); // Dark underbody
+        model.append("c(40,40,45)\n"); // Dark splitter
         model.append("fs(-1)\n");
-        model.append("p(-32,-30,92)\n");
-        model.append("p(-28,-35,95)\n");
-        model.append("p(28,-35,95)\n");
-        model.append("p(32,-30,92)\n");
-        model.append("p(20,-32,88)\n");
-        model.append("p(-20,-32,88)\n");
+        model.append("p(-35,-35,95)\n");
+        model.append("p(-40,-38,93)\n");
+        model.append("p(-45,-40,91)\n");
+        model.append("p(-48,-42,89)\n");
+        model.append("p(-46,-45,87)\n");
+        model.append("p(-41,-43,89)\n");
+        model.append("p(-36,-41,91)\n");
+        model.append("p(-32,-38,93)\n");
         model.append("</p>\n\n");
         
-        // Rear underbody panel
-        model.append("// Rear underbody panel\n");
+        // Front splitter - right section
+        model.append("// Front splitter - right section\n");
         model.append("<p>\n");
-        model.append("c(40,40,40)\n");
-        model.append("fs(-1)\n");
-        model.append("p(-32,-30,-70)\n");
-        model.append("p(-28,-35,-75)\n");
-        model.append("p(28,-35,-75)\n");
-        model.append("p(32,-30,-70)\n");
-        model.append("p(20,-32,-65)\n");
-        model.append("p(-20,-32,-65)\n");
+        model.append("c(40,40,45)\n");
+        model.append("fs(1)\n");
+        model.append("p(35,-35,95)\n");
+        model.append("p(40,-38,93)\n");
+        model.append("p(45,-40,91)\n");
+        model.append("p(48,-42,89)\n");
+        model.append("p(46,-45,87)\n");
+        model.append("p(41,-43,89)\n");
+        model.append("p(36,-41,91)\n");
+        model.append("p(32,-38,93)\n");
         model.append("</p>\n\n");
         
-        // Central underbody channel
-        model.append("// Central underbody channel\n");
+        // Rear diffuser - left section
+        model.append("// Rear diffuser - left section\n");
         model.append("<p>\n");
-        model.append("c(50,50,50)\n");
+        model.append("c(50,50,55)\n");
         model.append("fs(-1)\n");
-        model.append("p(-20,-32,88)\n");
-        model.append("p(-15,-35,85)\n");
-        model.append("p(15,-35,85)\n");
-        model.append("p(20,-32,88)\n");
-        model.append("p(20,-32,-65)\n");
-        model.append("p(15,-35,-68)\n");
-        model.append("p(-15,-35,-68)\n");
-        model.append("p(-20,-32,-65)\n");
+        model.append("p(-25,-35,-70)\n");
+        model.append("p(-30,-38,-75)\n");
+        model.append("p(-35,-40,-80)\n");
+        model.append("p(-38,-42,-85)\n");
+        model.append("p(-36,-45,-87)\n");
+        model.append("p(-31,-43,-82)\n");
+        model.append("p(-26,-41,-77)\n");
+        model.append("p(-22,-38,-72)\n");
+        model.append("</p>\n\n");
+        
+        // Rear diffuser - right section
+        model.append("// Rear diffuser - right section\n");
+        model.append("<p>\n");
+        model.append("c(50,50,55)\n");
+        model.append("fs(1)\n");
+        model.append("p(25,-35,-70)\n");
+        model.append("p(30,-38,-75)\n");
+        model.append("p(35,-40,-80)\n");
+        model.append("p(38,-42,-85)\n");
+        model.append("p(36,-45,-87)\n");
+        model.append("p(31,-43,-82)\n");
+        model.append("p(26,-41,-77)\n");
+        model.append("p(22,-38,-72)\n");
+        model.append("</p>\n\n");
+        
+        // Central tunnel
+        model.append("// Central tunnel\n");
+        model.append("<p>\n");
+        model.append("c(60,60,65)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-15,-38,85)\n");
+        model.append("p(-10,-42,80)\n");
+        model.append("p(-5,-45,75)\n");
+        model.append("p(5,-45,75)\n");
+        model.append("p(10,-42,80)\n");
+        model.append("p(15,-38,85)\n");
+        model.append("p(15,-38,-65)\n");
+        model.append("p(10,-42,-70)\n");
+        model.append("p(5,-45,-75)\n");
+        model.append("p(-5,-45,-75)\n");
+        model.append("p(-10,-42,-70)\n");
+        model.append("p(-15,-38,-65)\n");
+        model.append("</p>\n\n");
+        
+        // === ADDITIONAL DETAILED PANELS (MOTORSPORTS REALISM) ===
+        
+        // Engine cover vents - left section
+        model.append("// Engine cover vents - left section\n");
+        model.append("<p>\n");
+        model.append("c(100,100,110)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-18,-6,35)\n");
+        model.append("p(-16,-4,31)\n");
+        model.append("p(-14,-2,27)\n");
+        model.append("p(-16,-8,29)\n");
+        model.append("</p>\n\n");
+        
+        // Engine cover vents - right section
+        model.append("// Engine cover vents - right section\n");
+        model.append("<p>\n");
+        model.append("c(100,100,110)\n");
+        model.append("fs(1)\n");
+        model.append("p(18,-6,35)\n");
+        model.append("p(16,-4,31)\n");
+        model.append("p(14,-2,27)\n");
+        model.append("p(16,-8,29)\n");
+        model.append("</p>\n\n");
+        
+        // Side mirror assemblies - left
+        model.append("// Side mirror assemblies - left\n");
+        model.append("<p>\n");
+        model.append("c(160,160,170)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-26,-6,81)\n");
+        model.append("p(-30,-4,83)\n");
+        model.append("p(-32,-6,85)\n");
+        model.append("p(-28,-8,83)\n");
+        model.append("</p>\n\n");
+        
+        // Side mirror assemblies - right
+        model.append("// Side mirror assemblies - right\n");
+        model.append("<p>\n");
+        model.append("c(160,160,170)\n");
+        model.append("fs(1)\n");
+        model.append("p(26,-6,81)\n");
+        model.append("p(30,-4,83)\n");
+        model.append("p(32,-6,85)\n");
+        model.append("p(28,-8,83)\n");
+        model.append("</p>\n\n");
+        
+        // Suspension pickup points - front left
+        model.append("// Suspension pickup points - front left\n");
+        model.append("<p>\n");
+        model.append("c(90,90,95)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-42,-32,77)\n");
+        model.append("p(-44,-34,75)\n");
+        model.append("p(-46,-32,73)\n");
+        model.append("p(-44,-30,75)\n");
+        model.append("</p>\n\n");
+        
+        // Suspension pickup points - front right
+        model.append("// Suspension pickup points - front right\n");
+        model.append("<p>\n");
+        model.append("c(90,90,95)\n");
+        model.append("fs(1)\n");
+        model.append("p(42,-32,77)\n");
+        model.append("p(44,-34,75)\n");
+        model.append("p(46,-32,73)\n");
+        model.append("p(44,-30,75)\n");
+        model.append("</p>\n\n");
+        
+        // Suspension pickup points - rear left
+        model.append("// Suspension pickup points - rear left\n");
+        model.append("<p>\n");
+        model.append("c(90,90,95)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-42,-32,-43)\n");
+        model.append("p(-44,-34,-45)\n");
+        model.append("p(-46,-32,-47)\n");
+        model.append("p(-44,-30,-45)\n");
+        model.append("</p>\n\n");
+        
+        // Suspension pickup points - rear right
+        model.append("// Suspension pickup points - rear right\n");
+        model.append("<p>\n");
+        model.append("c(90,90,95)\n");
+        model.append("fs(1)\n");
+        model.append("p(42,-32,-43)\n");
+        model.append("p(44,-34,-45)\n");
+        model.append("p(46,-32,-47)\n");
+        model.append("p(44,-30,-45)\n");
+        model.append("</p>\n\n");
+        
+        // Front brake ducts - left
+        model.append("// Front brake ducts - left\n");
+        model.append("<p>\n");
+        model.append("c(70,70,75)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-48,-30,79)\n");
+        model.append("p(-50,-32,77)\n");
+        model.append("p(-52,-30,75)\n");
+        model.append("p(-50,-28,77)\n");
+        model.append("</p>\n\n");
+        
+        // Front brake ducts - right
+        model.append("// Front brake ducts - right\n");
+        model.append("<p>\n");
+        model.append("c(70,70,75)\n");
+        model.append("fs(1)\n");
+        model.append("p(48,-30,79)\n");
+        model.append("p(50,-32,77)\n");
+        model.append("p(52,-30,75)\n");
+        model.append("p(50,-28,77)\n");
+        model.append("</p>\n\n");
+        
+        // Rear brake ducts - left
+        model.append("// Rear brake ducts - left\n");
+        model.append("<p>\n");
+        model.append("c(70,70,75)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-48,-30,-41)\n");
+        model.append("p(-50,-32,-43)\n");
+        model.append("p(-52,-30,-45)\n");
+        model.append("p(-50,-28,-43)\n");
+        model.append("</p>\n\n");
+        
+        // Rear brake ducts - right
+        model.append("// Rear brake ducts - right\n");
+        model.append("<p>\n");
+        model.append("c(70,70,75)\n");
+        model.append("fs(1)\n");
+        model.append("p(48,-30,-41)\n");
+        model.append("p(50,-32,-43)\n");
+        model.append("p(52,-30,-45)\n");
+        model.append("p(50,-28,-43)\n");
+        model.append("</p>\n\n");
+        
+        // Exhaust tip details - left
+        model.append("// Exhaust tip details - left\n");
+        model.append("<p>\n");
+        model.append("c(120,120,125)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-20,-25,-95)\n");
+        model.append("p(-18,-27,-97)\n");
+        model.append("p(-16,-25,-95)\n");
+        model.append("p(-18,-23,-95)\n");
+        model.append("</p>\n\n");
+        
+        // Exhaust tip details - right
+        model.append("// Exhaust tip details - right\n");
+        model.append("<p>\n");
+        model.append("c(120,120,125)\n");
+        model.append("fs(1)\n");
+        model.append("p(20,-25,-95)\n");
+        model.append("p(18,-27,-97)\n");
+        model.append("p(16,-25,-95)\n");
+        model.append("p(18,-23,-95)\n");
+        model.append("</p>\n\n");
+        
+        // Front splitter details - center
+        model.append("// Front splitter details - center\n");
+        model.append("<p>\n");
+        model.append("c(35,35,40)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-15,-40,92)\n");
+        model.append("p(-10,-42,90)\n");
+        model.append("p(-5,-44,88)\n");
+        model.append("p(5,-44,88)\n");
+        model.append("p(10,-42,90)\n");
+        model.append("p(15,-40,92)\n");
+        model.append("p(12,-38,90)\n");
+        model.append("p(8,-36,88)\n");
+        model.append("p(-8,-36,88)\n");
+        model.append("p(-12,-38,90)\n");
+        model.append("</p>\n\n");
+        
+        // Wing mirror stalks - left
+        model.append("// Wing mirror stalks - left\n");
+        model.append("<p>\n");
+        model.append("c(140,140,150)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-24,-8,85)\n");
+        model.append("p(-26,-6,83)\n");
+        model.append("p(-28,-8,81)\n");
+        model.append("p(-26,-10,83)\n");
+        model.append("</p>\n\n");
+        
+        // Wing mirror stalks - right
+        model.append("// Wing mirror stalks - right\n");
+        model.append("<p>\n");
+        model.append("c(140,140,150)\n");
+        model.append("fs(1)\n");
+        model.append("p(24,-8,85)\n");
+        model.append("p(26,-6,83)\n");
+        model.append("p(28,-8,81)\n");
+        model.append("p(26,-10,83)\n");
+        model.append("</p>\n\n");
+        
+        // Cockpit side panels - left
+        model.append("// Cockpit side panels - left\n");
+        model.append("<p>\n");
+        model.append("c(120,120,130)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-20,-10,79)\n");
+        model.append("p(-22,-8,77)\n");
+        model.append("p(-24,-10,75)\n");
+        model.append("p(-22,-12,77)\n");
+        model.append("</p>\n\n");
+        
+        // Cockpit side panels - right
+        model.append("// Cockpit side panels - right\n");
+        model.append("<p>\n");
+        model.append("c(120,120,130)\n");
+        model.append("fs(1)\n");
+        model.append("p(20,-10,79)\n");
+        model.append("p(22,-8,77)\n");
+        model.append("p(24,-10,75)\n");
+        model.append("p(22,-12,77)\n");
+        model.append("</p>\n\n");
+        
+        // Side vent grilles - left upper
+        model.append("// Side vent grilles - left upper\n");
+        model.append("<p>\n");
+        model.append("c(80,80,85)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-46,-18,73)\n");
+        model.append("p(-48,-16,71)\n");
+        model.append("p(-50,-18,69)\n");
+        model.append("p(-48,-20,71)\n");
+        model.append("</p>\n\n");
+        
+        // Side vent grilles - right upper
+        model.append("// Side vent grilles - right upper\n");
+        model.append("<p>\n");
+        model.append("c(80,80,85)\n");
+        model.append("fs(1)\n");
+        model.append("p(46,-18,73)\n");
+        model.append("p(48,-16,71)\n");
+        model.append("p(50,-18,69)\n");
+        model.append("p(48,-20,71)\n");
+        model.append("</p>\n\n");
+        
+        // Side vent grilles - left lower
+        model.append("// Side vent grilles - left lower\n");
+        model.append("<p>\n");
+        model.append("c(75,75,80)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-48,-24,69)\n");
+        model.append("p(-50,-22,67)\n");
+        model.append("p(-52,-24,65)\n");
+        model.append("p(-50,-26,67)\n");
+        model.append("</p>\n\n");
+        
+        // Side vent grilles - right lower
+        model.append("// Side vent grilles - right lower\n");
+        model.append("<p>\n");
+        model.append("c(75,75,80)\n");
+        model.append("fs(1)\n");
+        model.append("p(48,-24,69)\n");
+        model.append("p(50,-22,67)\n");
+        model.append("p(52,-24,65)\n");
+        model.append("p(50,-26,67)\n");
+        model.append("</p>\n\n");
+        
+        // Radiator intake details - left
+        model.append("// Radiator intake details - left\n");
+        model.append("<p>\n");
+        model.append("c(60,60,65)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-50,-20,71)\n");
+        model.append("p(-52,-18,69)\n");
+        model.append("p(-54,-20,67)\n");
+        model.append("p(-52,-22,69)\n");
+        model.append("</p>\n\n");
+        
+        // Radiator intake details - right
+        model.append("// Radiator intake details - right\n");
+        model.append("<p>\n");
+        model.append("c(60,60,65)\n");
+        model.append("fs(1)\n");
+        model.append("p(50,-20,71)\n");
+        model.append("p(52,-18,69)\n");
+        model.append("p(54,-20,67)\n");
+        model.append("p(52,-22,69)\n");
+        model.append("</p>\n\n");
+        
+        // Aero detail strips - left front
+        model.append("// Aero detail strips - left front\n");
+        model.append("<p>\n");
+        model.append("c(200,200,205)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-36,-26,91)\n");
+        model.append("p(-38,-24,89)\n");
+        model.append("p(-40,-26,87)\n");
+        model.append("p(-38,-28,89)\n");
+        model.append("</p>\n\n");
+        
+        // Aero detail strips - right front
+        model.append("// Aero detail strips - right front\n");
+        model.append("<p>\n");
+        model.append("c(200,200,205)\n");
+        model.append("fs(1)\n");
+        model.append("p(36,-26,91)\n");
+        model.append("p(38,-24,89)\n");
+        model.append("p(40,-26,87)\n");
+        model.append("p(38,-28,89)\n");
+        model.append("</p>\n\n");
+        
+        // Aero detail strips - left rear
+        model.append("// Aero detail strips - left rear\n");
+        model.append("<p>\n");
+        model.append("c(200,200,205)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-36,-26,-55)\n");
+        model.append("p(-38,-24,-57)\n");
+        model.append("p(-40,-26,-59)\n");
+        model.append("p(-38,-28,-57)\n");
+        model.append("</p>\n\n");
+        
+        // Aero detail strips - right rear
+        model.append("// Aero detail strips - right rear\n");
+        model.append("<p>\n");
+        model.append("c(200,200,205)\n");
+        model.append("fs(1)\n");
+        model.append("p(36,-26,-55)\n");
+        model.append("p(38,-24,-57)\n");
+        model.append("p(40,-26,-59)\n");
+        model.append("p(38,-28,-57)\n");
+        model.append("</p>\n\n");
+        
+        // Fine detail panels - nose left
+        model.append("// Fine detail panels - nose left\n");
+        model.append("<p>\n");
+        model.append("c(210,210,215)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-12,-16,108)\n");
+        model.append("p(-14,-14,106)\n");
+        model.append("p(-16,-16,104)\n");
+        model.append("p(-14,-18,106)\n");
+        model.append("</p>\n\n");
+        
+        // Fine detail panels - nose right
+        model.append("// Fine detail panels - nose right\n");
+        model.append("<p>\n");
+        model.append("c(210,210,215)\n");
+        model.append("fs(1)\n");
+        model.append("p(12,-16,108)\n");
+        model.append("p(14,-14,106)\n");
+        model.append("p(16,-16,104)\n");
+        model.append("p(14,-18,106)\n");
+        model.append("</p>\n\n");
+        
+        // Fine detail panels - mid left
+        model.append("// Fine detail panels - mid left\n");
+        model.append("<p>\n");
+        model.append("c(170,30,30)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-26,-14,89)\n");
+        model.append("p(-28,-12,87)\n");
+        model.append("p(-30,-14,85)\n");
+        model.append("p(-28,-16,87)\n");
+        model.append("</p>\n\n");
+        
+        // Fine detail panels - mid right
+        model.append("// Fine detail panels - mid right\n");
+        model.append("<p>\n");
+        model.append("c(170,30,30)\n");
+        model.append("fs(1)\n");
+        model.append("p(26,-14,89)\n");
+        model.append("p(28,-12,87)\n");
+        model.append("p(30,-14,85)\n");
+        model.append("p(28,-16,87)\n");
+        model.append("</p>\n\n");
+        
+        // Fine detail panels - rear left
+        model.append("// Fine detail panels - rear left\n");
+        model.append("<p>\n");
+        model.append("c(150,15,15)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-6,0,-13)\n");
+        model.append("p(-8,-2,-15)\n");
+        model.append("p(-10,0,-17)\n");
+        model.append("p(-8,2,-15)\n");
+        model.append("</p>\n\n");
+        
+        // Fine detail panels - rear right
+        model.append("// Fine detail panels - rear right\n");
+        model.append("<p>\n");
+        model.append("c(150,15,15)\n");
+        model.append("fs(1)\n");
+        model.append("p(6,0,-13)\n");
+        model.append("p(8,-2,-15)\n");
+        model.append("p(10,0,-17)\n");
+        model.append("p(8,2,-15)\n");
+        model.append("</p>\n\n");
+        
+        // Additional front wing elements - left outer
+        model.append("// Additional front wing elements - left outer\n");
+        model.append("<p>\n");
+        model.append("c(230,230,235)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-50,-34,87)\n");
+        model.append("p(-52,-36,85)\n");
+        model.append("p(-54,-34,83)\n");
+        model.append("p(-52,-32,85)\n");
+        model.append("</p>\n\n");
+        
+        // Additional front wing elements - right outer
+        model.append("// Additional front wing elements - right outer\n");
+        model.append("<p>\n");
+        model.append("c(230,230,235)\n");
+        model.append("fs(1)\n");
+        model.append("p(50,-34,87)\n");
+        model.append("p(52,-36,85)\n");
+        model.append("p(54,-34,83)\n");
+        model.append("p(52,-32,85)\n");
+        model.append("</p>\n\n");
+        
+        // Additional rear wing elements - left outer
+        model.append("// Additional rear wing elements - left outer\n");
+        model.append("<p>\n");
+        model.append("c(230,230,235)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-37,-6,-88)\n");
+        model.append("p(-39,-8,-90)\n");
+        model.append("p(-41,-6,-92)\n");
+        model.append("p(-39,-4,-90)\n");
+        model.append("</p>\n\n");
+        
+        // Additional rear wing elements - right outer
+        model.append("// Additional rear wing elements - right outer\n");
+        model.append("<p>\n");
+        model.append("c(230,230,235)\n");
+        model.append("fs(1)\n");
+        model.append("p(37,-6,-88)\n");
+        model.append("p(39,-8,-90)\n");
+        model.append("p(41,-6,-92)\n");
+        model.append("p(39,-4,-90)\n");
+        model.append("</p>\n\n");
+        
+        // Micro detail elements - left side series
+        model.append("// Micro detail elements - left side series\n");
+        model.append("<p>\n");
+        model.append("c(190,35,35)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-34,-16,65)\n");
+        model.append("p(-35,-15,64)\n");
+        model.append("p(-36,-16,63)\n");
+        model.append("p(-35,-17,64)\n");
+        model.append("</p>\n\n");
+        
+        // Micro detail elements - right side series
+        model.append("// Micro detail elements - right side series\n");
+        model.append("<p>\n");
+        model.append("c(190,35,35)\n");
+        model.append("fs(1)\n");
+        model.append("p(34,-16,65)\n");
+        model.append("p(35,-15,64)\n");
+        model.append("p(36,-16,63)\n");
+        model.append("p(35,-17,64)\n");
+        model.append("</p>\n\n");
+        
+        // Micro detail elements - left mid series
+        model.append("// Micro detail elements - left mid series\n");
+        model.append("<p>\n");
+        model.append("c(190,35,35)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-34,-16,45)\n");
+        model.append("p(-35,-15,44)\n");
+        model.append("p(-36,-16,43)\n");
+        model.append("p(-35,-17,44)\n");
+        model.append("</p>\n\n");
+        
+        // Micro detail elements - right mid series
+        model.append("// Micro detail elements - right mid series\n");
+        model.append("<p>\n");
+        model.append("c(190,35,35)\n");
+        model.append("fs(1)\n");
+        model.append("p(34,-16,45)\n");
+        model.append("p(35,-15,44)\n");
+        model.append("p(36,-16,43)\n");
+        model.append("p(35,-17,44)\n");
+        model.append("</p>\n\n");
+        
+        // Micro detail elements - left rear series
+        model.append("// Micro detail elements - left rear series\n");
+        model.append("<p>\n");
+        model.append("c(190,35,35)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-34,-16,5)\n");
+        model.append("p(-35,-15,4)\n");
+        model.append("p(-36,-16,3)\n");
+        model.append("p(-35,-17,4)\n");
+        model.append("</p>\n\n");
+        
+        // Micro detail elements - right rear series
+        model.append("// Micro detail elements - right rear series\n");
+        model.append("<p>\n");
+        model.append("c(190,35,35)\n");
+        model.append("fs(1)\n");
+        model.append("p(34,-16,5)\n");
+        model.append("p(35,-15,4)\n");
+        model.append("p(36,-16,3)\n");
+        model.append("p(35,-17,4)\n");
+        model.append("</p>\n\n");
+        
+        // Detailed edge trim - front left
+        model.append("// Detailed edge trim - front left\n");
+        model.append("<p>\n");
+        model.append("c(180,180,185)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-20,-18,100)\n");
+        model.append("p(-21,-17,99)\n");
+        model.append("p(-22,-18,98)\n");
+        model.append("p(-21,-19,99)\n");
+        model.append("</p>\n\n");
+        
+        // Detailed edge trim - front right
+        model.append("// Detailed edge trim - front right\n");
+        model.append("<p>\n");
+        model.append("c(180,180,185)\n");
+        model.append("fs(1)\n");
+        model.append("p(20,-18,100)\n");
+        model.append("p(21,-17,99)\n");
+        model.append("p(22,-18,98)\n");
+        model.append("p(21,-19,99)\n");
+        model.append("</p>\n\n");
+        
+        // Detailed edge trim - rear left
+        model.append("// Detailed edge trim - rear left\n");
+        model.append("<p>\n");
+        model.append("c(180,180,185)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-20,-18,-60)\n");
+        model.append("p(-21,-17,-61)\n");
+        model.append("p(-22,-18,-62)\n");
+        model.append("p(-21,-19,-61)\n");
+        model.append("</p>\n\n");
+        
+        // Detailed edge trim - rear right
+        model.append("// Detailed edge trim - rear right\n");
+        model.append("<p>\n");
+        model.append("c(180,180,185)\n");
+        model.append("fs(1)\n");
+        model.append("p(20,-18,-60)\n");
+        model.append("p(21,-17,-61)\n");
+        model.append("p(22,-18,-62)\n");
+        model.append("p(21,-19,-61)\n");
+        model.append("</p>\n\n");
+        
+        // === FINAL DETAILED MOTORSPORTS COMPONENTS ===
+        
+        // Front wing endplates - left detailed
+        model.append("// Front wing endplates - left detailed\n");
+        model.append("<p>\n");
+        model.append("c(240,240,245)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-54,-36,83)\n");
+        model.append("p(-56,-34,81)\n");
+        model.append("p(-58,-36,79)\n");
+        model.append("p(-56,-38,81)\n");
+        model.append("</p>\n\n");
+        
+        // Front wing endplates - right detailed
+        model.append("// Front wing endplates - right detailed\n");
+        model.append("<p>\n");
+        model.append("c(240,240,245)\n");
+        model.append("fs(1)\n");
+        model.append("p(54,-36,83)\n");
+        model.append("p(56,-34,81)\n");
+        model.append("p(58,-36,79)\n");
+        model.append("p(56,-38,81)\n");
+        model.append("</p>\n\n");
+        
+        // Tire sidewall details - front left
+        model.append("// Tire sidewall details - front left\n");
+        model.append("<p>\n");
+        model.append("c(20,20,25)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-60,-42,79)\n");
+        model.append("p(-62,-40,77)\n");
+        model.append("p(-64,-42,75)\n");
+        model.append("p(-62,-44,77)\n");
+        model.append("</p>\n\n");
+        
+        // Tire sidewall details - front right
+        model.append("// Tire sidewall details - front right\n");
+        model.append("<p>\n");
+        model.append("c(20,20,25)\n");
+        model.append("fs(1)\n");
+        model.append("p(60,-42,79)\n");
+        model.append("p(62,-40,77)\n");
+        model.append("p(64,-42,75)\n");
+        model.append("p(62,-44,77)\n");
+        model.append("</p>\n\n");
+        
+        // Tire sidewall details - rear left
+        model.append("// Tire sidewall details - rear left\n");
+        model.append("<p>\n");
+        model.append("c(20,20,25)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-60,-42,-41)\n");
+        model.append("p(-62,-40,-43)\n");
+        model.append("p(-64,-42,-45)\n");
+        model.append("p(-62,-44,-43)\n");
+        model.append("</p>\n\n");
+        
+        // Tire sidewall details - rear right
+        model.append("// Tire sidewall details - rear right\n");
+        model.append("<p>\n");
+        model.append("c(20,20,25)\n");
+        model.append("fs(1)\n");
+        model.append("p(60,-42,-41)\n");
+        model.append("p(62,-40,-43)\n");
+        model.append("p(64,-42,-45)\n");
+        model.append("p(62,-44,-43)\n");
+        model.append("</p>\n\n");
+        
+        // Wheel rim details - front left inner
+        model.append("// Wheel rim details - front left inner\n");
+        model.append("<p>\n");
+        model.append("c(180,180,190)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-56,-38,77)\n");
+        model.append("p(-58,-36,75)\n");
+        model.append("p(-60,-38,73)\n");
+        model.append("p(-58,-40,75)\n");
+        model.append("</p>\n\n");
+        
+        // Wheel rim details - front right inner
+        model.append("// Wheel rim details - front right inner\n");
+        model.append("<p>\n");
+        model.append("c(180,180,190)\n");
+        model.append("fs(1)\n");
+        model.append("p(56,-38,77)\n");
+        model.append("p(58,-36,75)\n");
+        model.append("p(60,-38,73)\n");
+        model.append("p(58,-40,75)\n");
+        model.append("</p>\n\n");
+        
+        // Wheel rim details - rear left inner
+        model.append("// Wheel rim details - rear left inner\n");
+        model.append("<p>\n");
+        model.append("c(180,180,190)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-56,-38,-43)\n");
+        model.append("p(-58,-36,-45)\n");
+        model.append("p(-60,-38,-47)\n");
+        model.append("p(-58,-40,-45)\n");
+        model.append("</p>\n\n");
+        
+        // Wheel rim details - rear right inner
+        model.append("// Wheel rim details - rear right inner\n");
+        model.append("<p>\n");
+        model.append("c(180,180,190)\n");
+        model.append("fs(1)\n");
+        model.append("p(56,-38,-43)\n");
+        model.append("p(58,-36,-45)\n");
+        model.append("p(60,-38,-47)\n");
+        model.append("p(58,-40,-45)\n");
+        model.append("</p>\n\n");
+        
+        // Differential housing details
+        model.append("// Differential housing details\n");
+        model.append("<p>\n");
+        model.append("c(110,110,115)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-15,-35,-47)\n");
+        model.append("p(-10,-37,-45)\n");
+        model.append("p(-5,-39,-43)\n");
+        model.append("p(5,-39,-43)\n");
+        model.append("p(10,-37,-45)\n");
+        model.append("p(15,-35,-47)\n");
+        model.append("p(12,-33,-45)\n");
+        model.append("p(8,-31,-43)\n");
+        model.append("p(-8,-31,-43)\n");
+        model.append("p(-12,-33,-45)\n");
+        model.append("</p>\n\n");
+        
+        // Suspension arms - front left upper
+        model.append("// Suspension arms - front left upper\n");
+        model.append("<p>\n");
+        model.append("c(95,95,100)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-44,-28,79)\n");
+        model.append("p(-46,-26,77)\n");
+        model.append("p(-48,-28,75)\n");
+        model.append("p(-46,-30,77)\n");
+        model.append("</p>\n\n");
+        
+        // Suspension arms - front right upper
+        model.append("// Suspension arms - front right upper\n");
+        model.append("<p>\n");
+        model.append("c(95,95,100)\n");
+        model.append("fs(1)\n");
+        model.append("p(44,-28,79)\n");
+        model.append("p(46,-26,77)\n");
+        model.append("p(48,-28,75)\n");
+        model.append("p(46,-30,77)\n");
+        model.append("</p>\n\n");
+        
+        // Suspension arms - front left lower
+        model.append("// Suspension arms - front left lower\n");
+        model.append("<p>\n");
+        model.append("c(90,90,95)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-44,-36,77)\n");
+        model.append("p(-46,-34,75)\n");
+        model.append("p(-48,-36,73)\n");
+        model.append("p(-46,-38,75)\n");
+        model.append("</p>\n\n");
+        
+        // Suspension arms - front right lower
+        model.append("// Suspension arms - front right lower\n");
+        model.append("<p>\n");
+        model.append("c(90,90,95)\n");
+        model.append("fs(1)\n");
+        model.append("p(44,-36,77)\n");
+        model.append("p(46,-34,75)\n");
+        model.append("p(48,-36,73)\n");
+        model.append("p(46,-38,75)\n");
+        model.append("</p>\n\n");
+        
+        // Suspension arms - rear left upper
+        model.append("// Suspension arms - rear left upper\n");
+        model.append("<p>\n");
+        model.append("c(95,95,100)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-44,-28,-41)\n");
+        model.append("p(-46,-26,-43)\n");
+        model.append("p(-48,-28,-45)\n");
+        model.append("p(-46,-30,-43)\n");
+        model.append("</p>\n\n");
+        
+        // Suspension arms - rear right upper
+        model.append("// Suspension arms - rear right upper\n");
+        model.append("<p>\n");
+        model.append("c(95,95,100)\n");
+        model.append("fs(1)\n");
+        model.append("p(44,-28,-41)\n");
+        model.append("p(46,-26,-43)\n");
+        model.append("p(48,-28,-45)\n");
+        model.append("p(46,-30,-43)\n");
+        model.append("</p>\n\n");
+        
+        // Suspension arms - rear left lower
+        model.append("// Suspension arms - rear left lower\n");
+        model.append("<p>\n");
+        model.append("c(90,90,95)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-44,-36,-43)\n");
+        model.append("p(-46,-34,-45)\n");
+        model.append("p(-48,-36,-47)\n");
+        model.append("p(-46,-38,-45)\n");
+        model.append("</p>\n\n");
+        
+        // Suspension arms - rear right lower
+        model.append("// Suspension arms - rear right lower\n");
+        model.append("<p>\n");
+        model.append("c(90,90,95)\n");
+        model.append("fs(1)\n");
+        model.append("p(44,-36,-43)\n");
+        model.append("p(46,-34,-45)\n");
+        model.append("p(48,-36,-47)\n");
+        model.append("p(46,-38,-45)\n");
+        model.append("</p>\n\n");
+        
+        // Shock absorber details - front left
+        model.append("// Shock absorber details - front left\n");
+        model.append("<p>\n");
+        model.append("c(130,130,135)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-46,-32,75)\n");
+        model.append("p(-47,-30,74)\n");
+        model.append("p(-48,-32,73)\n");
+        model.append("p(-47,-34,74)\n");
+        model.append("</p>\n\n");
+        
+        // Shock absorber details - front right
+        model.append("// Shock absorber details - front right\n");
+        model.append("<p>\n");
+        model.append("c(130,130,135)\n");
+        model.append("fs(1)\n");
+        model.append("p(46,-32,75)\n");
+        model.append("p(47,-30,74)\n");
+        model.append("p(48,-32,73)\n");
+        model.append("p(47,-34,74)\n");
+        model.append("</p>\n\n");
+        
+        // Shock absorber details - rear left
+        model.append("// Shock absorber details - rear left\n");
+        model.append("<p>\n");
+        model.append("c(130,130,135)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-46,-32,-45)\n");
+        model.append("p(-47,-30,-46)\n");
+        model.append("p(-48,-32,-47)\n");
+        model.append("p(-47,-34,-46)\n");
+        model.append("</p>\n\n");
+        
+        // Shock absorber details - rear right
+        model.append("// Shock absorber details - rear right\n");
+        model.append("<p>\n");
+        model.append("c(130,130,135)\n");
+        model.append("fs(1)\n");
+        model.append("p(46,-32,-45)\n");
+        model.append("p(47,-30,-46)\n");
+        model.append("p(48,-32,-47)\n");
+        model.append("p(47,-34,-46)\n");
+        model.append("</p>\n\n");
+        
+        // Driveshaft housings - left
+        model.append("// Driveshaft housings - left\n");
+        model.append("<p>\n");
+        model.append("c(105,105,110)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-48,-34,17)\n");
+        model.append("p(-50,-32,15)\n");
+        model.append("p(-52,-34,13)\n");
+        model.append("p(-50,-36,15)\n");
+        model.append("</p>\n\n");
+        
+        // Driveshaft housings - right
+        model.append("// Driveshaft housings - right\n");
+        model.append("<p>\n");
+        model.append("c(105,105,110)\n");
+        model.append("fs(1)\n");
+        model.append("p(48,-34,17)\n");
+        model.append("p(50,-32,15)\n");
+        model.append("p(52,-34,13)\n");
+        model.append("p(50,-36,15)\n");
+        model.append("</p>\n\n");
+        
+        // Anti-roll bar details - front
+        model.append("// Anti-roll bar details - front\n");
+        model.append("<p>\n");
+        model.append("c(85,85,90)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-25,-30,71)\n");
+        model.append("p(-20,-32,69)\n");
+        model.append("p(-15,-34,67)\n");
+        model.append("p(15,-34,67)\n");
+        model.append("p(20,-32,69)\n");
+        model.append("p(25,-30,71)\n");
+        model.append("p(20,-28,69)\n");
+        model.append("p(15,-26,67)\n");
+        model.append("p(-15,-26,67)\n");
+        model.append("p(-20,-28,69)\n");
+        model.append("</p>\n\n");
+        
+        // Anti-roll bar details - rear
+        model.append("// Anti-roll bar details - rear\n");
+        model.append("<p>\n");
+        model.append("c(85,85,90)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-25,-30,-49)\n");
+        model.append("p(-20,-32,-51)\n");
+        model.append("p(-15,-34,-53)\n");
+        model.append("p(15,-34,-53)\n");
+        model.append("p(20,-32,-51)\n");
+        model.append("p(25,-30,-49)\n");
+        model.append("p(20,-28,-51)\n");
+        model.append("p(15,-26,-53)\n");
+        model.append("p(-15,-26,-53)\n");
+        model.append("p(-20,-28,-51)\n");
+        model.append("</p>\n\n");
+        
+        // Fuel system covers - left
+        model.append("// Fuel system covers - left\n");
+        model.append("<p>\n");
+        model.append("c(125,125,130)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-22,-12,47)\n");
+        model.append("p(-24,-10,45)\n");
+        model.append("p(-26,-12,43)\n");
+        model.append("p(-24,-14,45)\n");
+        model.append("</p>\n\n");
+        
+        // Fuel system covers - right
+        model.append("// Fuel system covers - right\n");
+        model.append("<p>\n");
+        model.append("c(125,125,130)\n");
+        model.append("fs(1)\n");
+        model.append("p(22,-12,47)\n");
+        model.append("p(24,-10,45)\n");
+        model.append("p(26,-12,43)\n");
+        model.append("p(24,-14,45)\n");
+        model.append("</p>\n\n");
+        
+        // Electronic control unit housings
+        model.append("// Electronic control unit housings\n");
+        model.append("<p>\n");
+        model.append("c(75,75,80)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-12,-8,53)\n");
+        model.append("p(-8,-6,51)\n");
+        model.append("p(-4,-8,49)\n");
+        model.append("p(4,-8,49)\n");
+        model.append("p(8,-6,51)\n");
+        model.append("p(12,-8,53)\n");
+        model.append("p(8,-10,51)\n");
+        model.append("p(4,-12,49)\n");
+        model.append("p(-4,-12,49)\n");
+        model.append("p(-8,-10,51)\n");
+        model.append("</p>\n\n");
+        
+        // Aerodynamic flow conditioners - left
+        model.append("// Aerodynamic flow conditioners - left\n");
+        model.append("<p>\n");
+        model.append("c(220,220,225)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-32,-20,87)\n");
+        model.append("p(-34,-18,85)\n");
+        model.append("p(-36,-20,83)\n");
+        model.append("p(-34,-22,85)\n");
+        model.append("</p>\n\n");
+        
+        // Aerodynamic flow conditioners - right
+        model.append("// Aerodynamic flow conditioners - right\n");
+        model.append("<p>\n");
+        model.append("c(220,220,225)\n");
+        model.append("fs(1)\n");
+        model.append("p(32,-20,87)\n");
+        model.append("p(34,-18,85)\n");
+        model.append("p(36,-20,83)\n");
+        model.append("p(34,-22,85)\n");
+        model.append("</p>\n\n");
+        
+        // Transmission housing details
+        model.append("// Transmission housing details\n");
+        model.append("<p>\n");
+        model.append("c(115,115,120)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-18,-30,23)\n");
+        model.append("p(-15,-32,21)\n");
+        model.append("p(-12,-34,19)\n");
+        model.append("p(12,-34,19)\n");
+        model.append("p(15,-32,21)\n");
+        model.append("p(18,-30,23)\n");
+        model.append("p(15,-28,21)\n");
+        model.append("p(12,-26,19)\n");
+        model.append("p(-12,-26,19)\n");
+        model.append("p(-15,-28,21)\n");
+        model.append("</p>\n\n");
+        
+        // Final aerodynamic micro-elements - front cluster
+        model.append("// Final aerodynamic micro-elements - front cluster\n");
+        model.append("<p>\n");
+        model.append("c(250,20,20)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-8,-20,95)\n");
+        model.append("p(-6,-18,93)\n");
+        model.append("p(-4,-20,91)\n");
+        model.append("p(-6,-22,93)\n");
+        model.append("</p>\n\n");
+        
+        model.append("<p>\n");
+        model.append("c(250,20,20)\n");
+        model.append("fs(1)\n");
+        model.append("p(8,-20,95)\n");
+        model.append("p(6,-18,93)\n");
+        model.append("p(4,-20,91)\n");
+        model.append("p(6,-22,93)\n");
+        model.append("</p>\n\n");
+        
+        // Final aerodynamic micro-elements - rear cluster
+        model.append("// Final aerodynamic micro-elements - rear cluster\n");
+        model.append("<p>\n");
+        model.append("c(250,20,20)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-8,-20,-85)\n");
+        model.append("p(-6,-18,-87)\n");
+        model.append("p(-4,-20,-89)\n");
+        model.append("p(-6,-22,-87)\n");
+        model.append("</p>\n\n");
+        
+        model.append("<p>\n");
+        model.append("c(250,20,20)\n");
+        model.append("fs(1)\n");
+        model.append("p(8,-20,-85)\n");
+        model.append("p(6,-18,-87)\n");
+        model.append("p(4,-20,-89)\n");
+        model.append("p(6,-22,-87)\n");
+        model.append("</p>\n\n");
+        
+        // Additional precision elements to reach target
+        // Roll cage details - side tubes
+        model.append("// Roll cage details - side tubes\n");
+        model.append("<p>\n");
+        model.append("c(140,140,145)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-18,-12,71)\n");
+        model.append("p(-16,-10,69)\n");
+        model.append("p(-14,-12,67)\n");
+        model.append("p(-16,-14,69)\n");
+        model.append("</p>\n\n");
+        
+        model.append("<p>\n");
+        model.append("c(140,140,145)\n");
+        model.append("fs(1)\n");
+        model.append("p(18,-12,71)\n");
+        model.append("p(16,-10,69)\n");
+        model.append("p(14,-12,67)\n");
+        model.append("p(16,-14,69)\n");
+        model.append("</p>\n\n");
+        
+        // Fire suppression system nozzles
+        model.append("// Fire suppression system nozzles\n");
+        model.append("<p>\n");
+        model.append("c(200,200,205)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-14,-6,59)\n");
+        model.append("p(-12,-4,57)\n");
+        model.append("p(-10,-6,55)\n");
+        model.append("p(-12,-8,57)\n");
+        model.append("</p>\n\n");
+        
+        model.append("<p>\n");
+        model.append("c(200,200,205)\n");
+        model.append("fs(1)\n");
+        model.append("p(14,-6,59)\n");
+        model.append("p(12,-4,57)\n");
+        model.append("p(10,-6,55)\n");
+        model.append("p(12,-8,57)\n");
+        model.append("</p>\n\n");
+        
+        // Data acquisition sensors - front
+        model.append("// Data acquisition sensors - front\n");
+        model.append("<p>\n");
+        model.append("c(50,50,55)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-16,-14,103)\n");
+        model.append("p(-15,-13,102)\n");
+        model.append("p(-14,-14,101)\n");
+        model.append("p(-15,-15,102)\n");
+        model.append("</p>\n\n");
+        
+        model.append("<p>\n");
+        model.append("c(50,50,55)\n");
+        model.append("fs(1)\n");
+        model.append("p(16,-14,103)\n");
+        model.append("p(15,-13,102)\n");
+        model.append("p(14,-14,101)\n");
+        model.append("p(15,-15,102)\n");
+        model.append("</p>\n\n");
+        
+        // Data acquisition sensors - rear
+        model.append("// Data acquisition sensors - rear\n");
+        model.append("<p>\n");
+        model.append("c(50,50,55)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-16,-14,-83)\n");
+        model.append("p(-15,-13,-84)\n");
+        model.append("p(-14,-14,-85)\n");
+        model.append("p(-15,-15,-84)\n");
+        model.append("</p>\n\n");
+        
+        model.append("<p>\n");
+        model.append("c(50,50,55)\n");
+        model.append("fs(1)\n");
+        model.append("p(16,-14,-83)\n");
+        model.append("p(15,-13,-84)\n");
+        model.append("p(14,-14,-85)\n");
+        model.append("p(15,-15,-84)\n");
+        model.append("</p>\n\n");
+        
+        // Final structural reinforcements
+        model.append("// Final structural reinforcements\n");
+        model.append("<p>\n");
+        model.append("c(160,160,165)\n");
+        model.append("fs(-1)\n");
+        model.append("p(-22,-16,81)\n");
+        model.append("p(-20,-14,79)\n");
+        model.append("p(-18,-16,77)\n");
+        model.append("p(-20,-18,79)\n");
+        model.append("</p>\n\n");
+        
+        model.append("<p>\n");
+        model.append("c(160,160,165)\n");
+        model.append("fs(1)\n");
+        model.append("p(22,-16,81)\n");
+        model.append("p(20,-14,79)\n");
+        model.append("p(18,-16,77)\n");
+        model.append("p(20,-18,79)\n");
         model.append("</p>\n\n");
         
         createCarModel("velocityx", model.toString());
@@ -827,7 +2364,7 @@ public class EnhancedCarSystem {
     /**
      * Pack all car models into models.radq archive
      */
-    private static void packModelsIntoArchive() throws IOException {
+    public static void packModelsIntoArchive() throws IOException {
         System.out.println("Packing all models into models.radq archive...");
         
         File dataDir = new File("data");
