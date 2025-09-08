@@ -1,6 +1,7 @@
 nfm\lit\XtGraphics.class
 nfm\lit\NFMUnlockProgressionTest.class
 nfm\lit\EnhancedCarConfig$ExtendedStats.class
+nfm\lit\ProfessionalTextCarModelCreator$Point3D.class
 nfm\lit\RaceSettingsManager.class
 nfm\lit\racesettings\ui\RaceSettingsUI$RaceSettingsListener.class
 nfm\lit\FixEnhancedStats.class
@@ -10,14 +11,17 @@ nfm\lit\RaceSettingsUI.class
 nfm\lit\audio\RadicalMod.class
 nfm\lit\StageConfig.class
 nfm\lit\SystemVerification.class
+nfm\lit\ProfessionalCarModelCreator$CarModelAnalysis.class
 nfm\lit\audio\TrackZipLoader.class
 nfm\lit\Madness.class
 nfm\lit\DevTool.class
 nfm\lit\RaceSettingsManager$RaceConfiguration.class
+nfm\lit\ProfessionalTextCarModelCreator.class
 nfm\lit\audio\RadicalMusic$Type.class
 nfm\lit\racesettings\ui\CarAllocationPanel$1.class
 nfm\lit\racesettings\CarPoolManager.class
 nfm\lit\Record.class
+nfm\lit\CarModelHexAnalyzer.class
 nfm\lit\AIConfig.class
 nfm\lit\CheckPoints.class
 nfm\lit\Medium.class
@@ -47,6 +51,7 @@ nfm\lit\RunApp$1.class
 nfm\lit\Stat.class
 nfm\lit\Phase.class
 nfm\lit\ExtensibilityTest.class
+nfm\lit\RadqModelManager.class
 nfm\lit\DesktopStub.class
 nfm\lit\audio\SuperClip.class
 nfm\lit\racesettings\ui\CarAllocationPanel$CarTableRenderer.class
@@ -82,6 +87,7 @@ nfm\lit\racesettings\TrackMetadataLoader.class
 nfm\lit\FontHandler.class
 nfm\lit\ContO.class
 nfm\lit\racesettings\CarAllocation.class
+nfm\lit\ProfessionalCarModelCreator.class
 nfm\lit\racesettings\ui\ValidationStatusPanel$ValidationMessageRenderer.class
 nfm\lit\GameSparker$1.class
 nfm\lit\Metrics.class
@@ -90,6 +96,7 @@ nfm\lit\CarConfig.class
 nfm\lit\GameFacts.class
 nfm\lit\racesettings\AIDifficulty.class
 nfm\lit\RunApp.class
+nfm\lit\ProfessionalTextCarModelCreator$CarModelData.class
 nfm\lit\audio\SoundClip.class
 nfm\lit\GameSparker.class
 nfm\lit\racesettings\CarVariant.class

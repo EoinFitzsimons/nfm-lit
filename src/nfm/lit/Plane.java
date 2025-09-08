@@ -102,6 +102,21 @@ public class Plane {
         flx = 0;
         t = trackers;
         n = i;
+        
+        // Safety check: planes need at least 3 vertices
+        if (n < 3) {
+            System.err.println("Warning: Plane created with only " + n + " vertices. Using minimal defaults.");
+            ox = new int[3];
+            oz = new int[3];
+            oy = new int[3];
+            // Create a minimal triangle if no vertices provided
+            ox[0] = ox[1] = ox[2] = 0;
+            oy[0] = oy[1] = oy[2] = 0;
+            oz[0] = oz[1] = oz[2] = 0;
+            typ = 0;
+            return;
+        }
+        
         ox = new int[n];
         oz = new int[n];
         oy = new int[n];

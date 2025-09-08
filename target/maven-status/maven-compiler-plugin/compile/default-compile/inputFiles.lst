@@ -17,6 +17,7 @@ C:\Users\eoin0\Documents\Code\NFM\nfm-lit\src\nfm\lit\AIConfig.java
 C:\Users\eoin0\Documents\Code\NFM\nfm-lit\src\nfm\lit\GameEngineFactory.java
 C:\Users\eoin0\Documents\Code\NFM\nfm-lit\src\nfm\lit\racesettings\ui\CarAllocationPanel.java
 C:\Users\eoin0\Documents\Code\NFM\nfm-lit\src\nfm\lit\SimpleRaceSettingsUI.java
+C:\Users\eoin0\Documents\Code\NFM\nfm-lit\src\nfm\lit\RadqModelManager.java
 C:\Users\eoin0\Documents\Code\NFM\nfm-lit\src\nfm\lit\racesettings\AIDifficulty.java
 C:\Users\eoin0\Documents\Code\NFM\nfm-lit\src\nfm\lit\Metrics.java
 C:\Users\eoin0\Documents\Code\NFM\nfm-lit\src\nfm\lit\XtGraphics.java
@@ -47,11 +48,13 @@ C:\Users\eoin0\Documents\Code\NFM\nfm-lit\src\nfm\lit\DesktopSoundClip.java
 C:\Users\eoin0\Documents\Code\NFM\nfm-lit\src\nfm\lit\LargerRaceTest.java
 C:\Users\eoin0\Documents\Code\NFM\nfm-lit\src\nfm\lit\racesettings\CarInstance.java
 C:\Users\eoin0\Documents\Code\NFM\nfm-lit\src\nfm\lit\racesettings\TrackMetadata.java
+C:\Users\eoin0\Documents\Code\NFM\nfm-lit\src\nfm\lit\TestCarCreation.java
 C:\Users\eoin0\Documents\Code\NFM\nfm-lit\src\fallk\logmaster\HLogger.java
 C:\Users\eoin0\Documents\Code\NFM\nfm-lit\src\nfm\lit\Stat.java
 C:\Users\eoin0\Documents\Code\NFM\nfm-lit\src\nfm\lit\SoundConfig.java
 C:\Users\eoin0\Documents\Code\NFM\nfm-lit\src\nfm\lit\racesettings\CarAllocation.java
 C:\Users\eoin0\Documents\Code\NFM\nfm-lit\src\nfm\lit\racesettings\RaceSettings.java
+C:\Users\eoin0\Documents\Code\NFM\nfm-lit\src\nfm\lit\ProfessionalTextCarModelCreator.java
 C:\Users\eoin0\Documents\Code\NFM\nfm-lit\src\nfm\lit\racesettings\ValidationResult.java
 C:\Users\eoin0\Documents\Code\NFM\nfm-lit\src\nfm\lit\RenderConfig.java
 C:\Users\eoin0\Documents\Code\NFM\nfm-lit\src\nfm\lit\TrackMetadata.java
@@ -65,11 +68,13 @@ C:\Users\eoin0\Documents\Code\NFM\nfm-lit\src\nfm\lit\audio\SoundClipThreaded.ja
 C:\Users\eoin0\Documents\Code\NFM\nfm-lit\src\nfm\lit\DesktopStub.java
 C:\Users\eoin0\Documents\Code\NFM\nfm-lit\src\nfm\lit\racesettings\CarVariant.java
 C:\Users\eoin0\Documents\Code\NFM\nfm-lit\src\nfm\lit\Trackers.java
+C:\Users\eoin0\Documents\Code\NFM\nfm-lit\src\nfm\lit\ProfessionalCarModelCreator.java
 C:\Users\eoin0\Documents\Code\NFM\nfm-lit\src\nfm\lit\audio\TrackZipLoader.java
 C:\Users\eoin0\Documents\Code\NFM\nfm-lit\src\nfm\lit\Control.java
 C:\Users\eoin0\Documents\Code\NFM\nfm-lit\src\nfm\lit\RaceSettingsUI.java
 C:\Users\eoin0\Documents\Code\NFM\nfm-lit\src\nfm\lit\racesettings\ui\ValidationStatusPanel.java
 C:\Users\eoin0\Documents\Code\NFM\nfm-lit\src\nfm\lit\racesettings\PerformanceTestResult.java
+C:\Users\eoin0\Documents\Code\NFM\nfm-lit\src\nfm\lit\CarModelHexAnalyzer.java
 C:\Users\eoin0\Documents\Code\NFM\nfm-lit\src\nfm\lit\DesktopContext.java
 C:\Users\eoin0\Documents\Code\NFM\nfm-lit\src\nfm\lit\Enhanced50CarSystemTest.java
 C:\Users\eoin0\Documents\Code\NFM\nfm-lit\src\nfm\lit\Madness.java

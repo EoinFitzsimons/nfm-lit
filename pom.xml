@@ -157,6 +157,16 @@
                 </configuration>
             </plugin>
             
+            <!-- Exec plugin for running Java classes -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <mainClass>nfm.lit.TestCarCreation</mainClass>
+                </configuration>
+            </plugin>
+            
             <!-- Launch4j plugin to create Windows executable -->
             <plugin>
                 <groupId>com.akathist.maven.plugins.launch4j</groupId>

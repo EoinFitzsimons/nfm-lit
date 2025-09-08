@@ -90,6 +90,17 @@ public class GameSparker extends JPanel implements IGameEngine, Runnable, KeyLis
 
     public int noboffset = 10;      //this makes it so IDs are offset correctly, can be modified by stage via idoffset(x)
     public int nobfix = carModels.length - noboffset;
+    
+    // Enhanced car system compatibility: Adjust nobfix for the 34 additional cars (50 vs 16 original)
+    // This ensures track files designed for 16-car system work with 50-car system
+    private int getCompatibleNobfix() {
+        if (carModels.length == 50) {
+            // For 50-car system, we need to adjust the offset to maintain compatibility with original track files
+            // Original: 16 cars, nobfix = 6. Enhanced: 50 cars, but tracks expect old indexing
+            return nobfix - 34; // Subtract the 34 additional cars to maintain original track compatibility
+        }
+        return nobfix;
+    }
 
     public boolean reverseYRot = false;
 
@@ -517,13 +528,26 @@ public class GameSparker extends JPanel implements IGameEngine, Runnable, KeyLis
                         modelId = extra + trackCount + carCount;
 
                 int entireSize = (int) zipentry.getSize();
-                final byte[] modelData = new byte[entireSize];
-
-                int unknown1 = 0;
-                int unknown2;
-                for (; entireSize > 0; entireSize -= unknown2) {
-                    unknown2 = zipinputstream.read(modelData, unknown1, entireSize);
-                    unknown1 += unknown2;
+                final byte[] modelData;
+                
+                if (entireSize <= 0) {
+                    // Size unknown, read into ByteArrayOutputStream first
+                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                    byte[] buffer = new byte[4096];
+                    int bytesRead;
+                    while ((bytesRead = zipinputstream.read(buffer)) != -1) {
+                        baos.write(buffer, 0, bytesRead);
+                    }
+                    modelData = baos.toByteArray();
+                } else {
+                    // Size known, read directly
+                    modelData = new byte[entireSize];
+                    int unknown1 = 0;
+                    int unknown2;
+                    for (; entireSize > 0; entireSize -= unknown2) {
+                        unknown2 = zipinputstream.read(modelData, unknown1, entireSize);
+                        unknown1 += unknown2;
+                    }
                 }
                 conto[modelId] = new ContO(modelData, trackers);
                 xtgraphics.dnload++;
@@ -668,7 +692,7 @@ public class GameSparker extends JPanel implements IGameEngine, Runnable, KeyLis
 
                 if (line.startsWith("set")) {
                     int k1 = Utility.getint("set", line, 0);
-                    k1 += nobfix;
+                    k1 += getCompatibleNobfix(); // Use compatibility method for enhanced car system
                     // compute default Y (ground-height)
                     int yVal = Medium.ground - aconto[k1].grat;
                     int rot = Utility.getint("set", line, 3);
@@ -768,7 +792,7 @@ public class GameSparker extends JPanel implements IGameEngine, Runnable, KeyLis
                 }
                 if (line.startsWith("chk")) {
                     int l1 = Utility.getint("chk", line, 0);
-                    l1 += nobfix;
+                    l1 += getCompatibleNobfix(); // Use compatibility method for enhanced car system
                 
                     // compute default Y (ground-height)
                     int yVal = Medium.ground - aconto1[l1].grat;
@@ -816,7 +840,7 @@ public class GameSparker extends JPanel implements IGameEngine, Runnable, KeyLis
                 }
                 if (line.startsWith("fix")) {
                     int i2 = Utility.getint("fix", line, 0);
-                    i2 += nobfix;
+                    i2 += getCompatibleNobfix(); // Use compatibility method for enhanced car system
                     aconto[nob] = new ContO(aconto1[i2], Utility.getint("fix", line, 1), Utility.getint("fix", line, 3),
                             Utility.getint("fix", line, 2), Utility.getint("fix", line, 4));
                     checkpoints.fx[checkpoints.fn] = Utility.getint("fix", line, 1);
